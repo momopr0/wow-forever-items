@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WoW Forever — Items, equipo y talentos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2b303b;--text:#e7e3d8;--muted:#9a9a92;--gold:#d8b25a;--gold2:#f0d48a;
+--q0:#9d9d9d;--q1:#ffffff;--q2:#1eff00;--q3:#3d9bff;--q4:#b866ff;--q5:#ff8000;--q7:#e6cc80}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:radial-gradient(1200px 500px at 50% -200px,#2a2416 0%,var(--bg) 60%);color:var(--text);font:14px/1.45 Inter,system-ui,sans-serif;min-height:100vh}
+header{padding:20px 20px 0;max-width:1280px;margin:0 auto}
+h1{font-family:Cinzel,serif;color:var(--gold2);margin:0;font-size:25px}
+.sub{color:var(--muted);margin-top:2px;font-size:13px}
+nav{display:flex;gap:4px;margin-top:14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+nav a{padding:9px 16px;color:var(--muted);text-decoration:none;border:1px solid transparent;border-bottom:0;border-radius:8px 8px 0 0;font-weight:600;font-family:Cinzel,serif;letter-spacing:.3px}
+nav a.on{color:var(--gold2);background:var(--panel);border-color:var(--line);margin-bottom:-1px}
+nav a:hover{color:var(--gold2)}
+.charbar{margin-left:auto;display:flex;gap:6px;align-items:center;padding-bottom:6px;flex-wrap:wrap}
+.charbar select,.charbar input{width:auto;padding:5px 8px;font-size:13px}
+#cLang{border-color:#5b4a1f}
+.charbar input#cLvl{width:64px}
+.view{max-width:1280px;margin:0 auto;padding:14px 20px 60px}
+.grid2{display:grid;grid-template-columns:300px 1fr;gap:18px}
+@media(max-width:880px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;align-self:start}
+.card h2{font-family:Cinzel,serif;color:var(--gold);font-size:15px;margin:0 0 10px}
+.section{margin-bottom:14px}.section:last-child{margin-bottom:0}
+label.lbl{display:block;font-size:11.5px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:999px;padding:4px 10px;font:inherit;font-size:12.5px;cursor:pointer}
+.chip:hover{border-color:#4a5160}.chip.on{background:#3a2f15;border-color:var(--gold);color:var(--gold2)}
+details>summary{cursor:pointer;color:var(--muted);font-size:12px;margin:6px 0;list-style:none}
+details>summary::before{content:"▸ "}details[open]>summary::before{content:"▾ "}
+input[type=text],input[type=number],select,textarea{width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:8px;padding:8px 10px;font:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{flex:1;background:var(--panel2);border:0;color:var(--muted);padding:7px;font:inherit;font-size:13px;cursor:pointer}
+.seg button.on{background:#3a2f15;color:var(--gold2)}
+.cmd{display:flex;gap:8px;margin-bottom:8px}.cmd input{font-size:15px;padding:11px 12px}
+.btn{background:var(--gold);color:#1a1408;border:0;border-radius:8px;padding:8px 14px;font:inherit;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--gold2)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line);font-weight:500}.btn.ghost:hover{border-color:var(--gold)}
+.btn.sm{padding:5px 10px;font-size:12.5px}
+.summary{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 10px;color:var(--muted)}
+.summary b{color:var(--text)}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;min-width:720px}
+th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{background:var(--panel2);font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;cursor:pointer;position:sticky;top:0;white-space:nowrap;z-index:1}
+th:hover{color:var(--gold2)}
+tbody tr{cursor:pointer}tbody tr:hover td{background:#1b1f27}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.nm{font-weight:600;min-width:220px}
+.nmw{display:flex;align-items:center;gap:8px}
+.q0{color:var(--q0)}.q1{color:var(--q1)}.q2{color:var(--q2)}.q3{color:var(--q3)}.q4{color:var(--q4)}.q5{color:var(--q5)}.q7{color:var(--q7)}
+.bq0{border-color:#555!important}.bq1{border-color:#bbb!important}.bq2{border-color:var(--q2)!important}.bq3{border-color:var(--q3)!important}.bq4{border-color:var(--q4)!important}.bq5{border-color:var(--q5)!important}.bq7{border-color:var(--q7)!important}
+.ico{display:inline-block;flex:0 0 auto;background-image:url(icons.jpg);background-repeat:no-repeat;border:1px solid #444;border-radius:5px;image-rendering:auto}
+.tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:5px;background:var(--panel2);border:1px solid var(--line);color:var(--muted);white-space:nowrap;font-weight:400}
+.tag.warn{border-color:#5b4a1f;color:#d9bf7a}
+.stats span{display:inline-block;margin-right:8px;color:#b9c3d6;white-space:nowrap}.stats span.hit{color:var(--q2);font-weight:600}
+.empty{padding:40px;text-align:center;color:var(--muted)}
+.note{font-size:12px;color:var(--muted)}.note b{color:var(--text)}
+.more{display:flex;justify-content:center;padding:12px}
+.loading{padding:60px;text-align:center;color:var(--muted)}
+/* tooltip */
+#tip{position:fixed;z-index:50;pointer-events:none;width:300px;background:rgba(8,10,16,.97);border:1px solid #5a5a6a;border-radius:6px;padding:9px 11px;font-size:13px;box-shadow:0 6px 24px rgba(0,0,0,.6)}
+#tip h4{margin:0 0 2px;font-size:14.5px}
+#tip .ln{margin:1px 0;color:#e8e8e0}#tip .eq{color:var(--q2)}#tip .mu{color:var(--muted);font-size:12px}#tip .red{color:#ff5050}
+/* detalle */
+#detail{position:fixed;right:18px;bottom:18px;width:min(380px,calc(100% - 36px));background:#101318;border:1px solid #4a3f22;border-radius:10px;padding:14px;box-shadow:0 10px 40px rgba(0,0,0,.6);z-index:30}
+#detail .x{position:absolute;top:6px;right:10px;background:none;border:0;color:var(--muted);font-size:20px;cursor:pointer}
+#detail .ln{margin:2px 0;color:#d0d0c8}#detail .eq{color:var(--q2)}#detail .src{color:var(--muted);font-size:12.5px;margin-top:8px}#detail a{color:var(--gold2)}
+/* paperdoll */
+.doll{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:start}
+@media(max-width:760px){.doll{grid-template-columns:1fr 1fr}.doll .center{grid-column:1/3;order:3}}
+.col{display:flex;flex-direction:column;gap:7px}
+.slot{display:flex;align-items:center;gap:9px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:5px;cursor:pointer;min-width:210px;max-width:260px}
+.slot:hover{border-color:var(--gold)}
+.slot .em{width:42px;height:42px;border:1px dashed #444;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#555;font-size:20px;flex:0 0 auto}
+.slot .t{min-width:0}.slot .t .a{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.slot .t .b{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px}
+.right .slot{flex-direction:row-reverse;text-align:right;margin-left:auto}
+.bottom{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.bottom .slot{min-width:200px}
+.slot.off{opacity:.45}
+.col .slot{width:260px;max-width:none;min-width:0}
+.slot{position:relative}
+.lockbtn{flex:0 0 auto;width:28px;height:28px;border-radius:6px;border:1px solid #444;background:#14171d;color:#777;padding:0;cursor:pointer;margin-left:auto;display:flex;align-items:center;justify-content:center}
+.right .lockbtn{margin-left:0;margin-right:auto}
+.lockbtn:hover{border-color:var(--gold);color:var(--gold2)}
+.lockbtn.on{background:#3a2f15;border-color:var(--gold);color:var(--gold2)}
+.slot.locked{border-color:#8a7330;box-shadow:inset 0 0 0 1px #8a7330}
+.statbox{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+.statbox h3{font-family:Cinzel,serif;color:var(--gold);font-size:14px;margin:0 0 8px}
+.sr{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed #2a2e37;font-variant-numeric:tabular-nums}
+.sr:last-child{border-bottom:0}.sr .v{font-weight:600}.sr .g{color:var(--q2);font-weight:500;font-size:12px;margin-left:6px}
+.statcols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.statcols{grid-template-columns:1fr}}
+/* modal */
+dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:12px;max-width:860px;width:calc(100% - 24px);padding:0}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+.dlg-h{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);gap:10px}
+.dlg-h h3{margin:0;font-family:Cinzel,serif;color:var(--gold2);font-size:17px}
+.dlg-b{padding:12px 16px}
+.plist{max-height:58vh;overflow:auto;border:1px solid var(--line);border-radius:8px;margin-top:10px}
+.pi{display:flex;gap:10px;align-items:center;padding:6px 10px;border-bottom:1px solid var(--line);cursor:pointer}
+.pi:hover{background:#1b1f27}
+.pi .mid{flex:1;min-width:0}.pi .nm{font-weight:600}
+.pi .meta{font-size:12px;color:var(--muted)}
+.pi .delta{font-size:12px;white-space:nowrap;text-align:right}
+.up{color:var(--q2)}.down{color:#ff6060}
+.talfx{margin-top:6px;padding:6px 8px;background:#14171d;border-left:3px solid var(--gold);border-radius:4px}
+/* sets */
+.setgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px}
+.setcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+.setcard h3{margin:0;font-size:15px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.setcard .meta{font-size:12px;color:var(--muted);margin:3px 0 8px}
+.sp{display:flex;gap:8px;align-items:center;padding:4px 0;border-top:1px dashed #2a2e37;cursor:pointer}
+.sp .t{flex:1;min-width:0}.sp .nm{font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sp .wh{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sp.no{opacity:.45}
+/* auto */
+.autogrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px}
+@media(max-width:900px){.autogrid{grid-template-columns:1fr}}
+.plist2{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px;min-height:40px}
+.plist2 li{display:flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:4px 6px 4px 8px}
+.plist2 li .n{flex:1;font-weight:600}.plist2 li .w{font-size:11.5px;color:var(--muted);width:44px;text-align:right}
+.plist2 li .p{color:var(--gold2);font-weight:700;width:18px}
+.plist2 li button{background:none;border:1px solid var(--line);color:var(--muted);border-radius:5px;width:24px;height:24px;cursor:pointer;padding:0}
+.plist2 li button:hover{color:var(--gold2);border-color:var(--gold)}
+.ck{display:flex;gap:6px;align-items:center;cursor:pointer;margin-top:5px}
+.rank{display:inline-block;min-width:24px;text-align:center;font-weight:700;color:#1a1408;background:var(--gold);border-radius:5px;font-size:12px;padding:1px 4px;margin-right:4px}
+.rank.r2{background:#c9c9c9}.rank.r3{background:#c58b4e}
+.pi.best{background:#1f1b10}
+/* talents */
+.tbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.tbar .pts{font-size:15px}.tbar .pts b{color:var(--gold2);font-size:18px}
+.trees{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.trees{grid-template-columns:1fr}}
+.tree{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+.tree h3{margin:0 0 10px;font-family:Cinzel,serif;color:var(--gold2);font-size:15px;display:flex;justify-content:space-between;align-items:center}
+.tgrid{display:grid;grid-template-columns:repeat(4,52px);grid-auto-rows:56px;gap:6px 14px;justify-content:center;position:relative}
+.tal{position:relative;width:48px;height:48px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.tal .ico{width:46px;height:46px;border:2px solid #555;filter:grayscale(1) brightness(.55)}
+.tal.avail .ico{filter:none;border-color:#2fbf3a}
+.tal.part .ico{filter:none;border-color:#2fbf3a}
+.tal.max .ico{filter:none;border-color:var(--gold)}
+.tal .rk{position:absolute;right:-8px;bottom:-6px;background:#0b0d11;border:1px solid #555;border-radius:4px;font-size:11px;padding:0 4px;color:#ccc;font-weight:600}
+.tal.avail .rk,.tal.part .rk{color:var(--q2);border-color:#2fbf3a}.tal.max .rk{color:var(--gold2);border-color:var(--gold)}
+.tal .rq{position:absolute;left:-7px;top:-7px;font-size:10px;color:#aaa}
+.arrow{position:absolute;width:4px;background:#555;border-radius:2px;pointer-events:none}
+.arrow.ok{background:var(--gold)}
+</style>
+</head>
+<body>
+<header>
+  <h1>WoW Forever — Items, equipo y talentos</h1>
+  <div class="sub" id="meta">Cargando base de datos…</div>
+  <nav>
+    <a href="#buscar" data-v="buscar">Buscador</a>
+    <a href="#equipo" data-v="equipo">Mi equipo</a>
+    <a href="#talentos" data-v="talentos">Talentos</a>
+    <a href="#sets" data-v="sets">Sets</a>
+    <div class="charbar">
+      <select id="cLang" title="Idioma / Language"></select>
+      <select id="cClass" title="Clase"></select>
+      <select id="cRace" title="Raza"></select>
+      <label class="note">Nivel</label><input type="number" id="cLvl" min="1" max="60" value="60">
+    </div>
+  </nav>
+</header>
+
+<!-- ============ BUSCADOR ============ -->
+<div class="view" id="v-buscar">
+ <div class="grid2">
+  <aside class="card">
+    <div class="section"><label class="lbl">Nivel</label>
+      <label class="note" style="display:flex;gap:6px;align-items:center;cursor:pointer;margin-bottom:8px"><input type="checkbox" id="myLvl"> <span>Solo items que puedo usar a mi nivel (<b id="myLvlN">60</b>)</span></label>
+      <div class="row"><input type="number" id="lvlMin" placeholder="nivel mín" min="0" max="60"><input type="number" id="lvlMax" placeholder="nivel máx" min="0" max="60"></div></div>
+    <div class="section"><label class="lbl">Armadura</label><div class="chips" id="armorChips"></div></div>
+    <div class="section"><label class="lbl">Armas</label><div class="chips" id="weapChips"></div></div>
+    <div class="section"><label class="lbl">Estadísticas</label><div class="chips" id="statChips"></div>
+      <details id="moreStats"><summary>Más estadísticas</summary><div class="chips" id="statChips2"></div></details></div>
+    <div class="section"><label class="lbl">El item debe tener</label>
+      <div class="seg" id="modeSeg"><button data-m="all" class="on">Todas</button><button data-m="any">Al menos una</button></div></div>
+    <div class="section"><label class="lbl">Ranura</label><select id="slotSel"></select></div>
+    <div class="section"><label class="lbl">Calidad mínima</label>
+      <select id="qualSel"><option value="0">Cualquiera</option><option value="2">Poco común (verde)</option><option value="3">Raro (azul)</option><option value="4">Épico (morado)</option><option value="5">Legendario</option></select></div>
+    <div class="section"><label class="lbl">Cómo se consigue</label><div class="chips" id="srcChips"></div></div>
+    <div class="section"><label class="note" style="display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="myClass"> Solo lo que mi clase puede usar</label>
+      <label class="note" style="display:flex;gap:6px;align-items:center;cursor:pointer;margin-top:6px"><input type="checkbox" id="hideEst"> Ocultar items aún ocultos en Forever</label>
+      <label class="note" style="display:flex;gap:6px;align-items:center;cursor:pointer;margin-top:6px"><input type="checkbox" id="ahOnly"> Solo items de subasta (no ligados) o de tus profesiones</label></div>
+    <div class="section"><button class="btn ghost" id="resetBtn" style="width:100%">Limpiar filtros</button></div>
+  </aside>
+  <section>
+    <div class="cmd"><input type="text" id="cmdInput" placeholder="Escribe lo que buscas: «botas de cuero con agilidad», «dagas épicas», «anillos con intelecto nivel 50 a 60»…"><button class="btn" id="cmdBtn">Buscar</button></div>
+    <input type="text" id="nameInput" placeholder="Filtrar por nombre del item, set o fuente…">
+    <p class="note" id="parseNote"></p>
+    <div class="summary"><div id="summaryText"></div><button class="btn ghost sm" id="copyBtn">Copiar resultados</button></div>
+    <div class="tablewrap" id="tablewrap">
+      <div class="loading" id="loading">Cargando items…</div>
+      <table hidden id="tbl"><thead><tr id="thead"></tr></thead><tbody id="tbody"></tbody></table>
+      <div class="empty" id="empty" hidden>Ningún item cumple esos filtros.</div>
+      <div class="more" id="more" hidden><button class="btn ghost" id="moreBtn">Mostrar más</button></div>
+    </div>
+  </section>
+ </div>
+</div>
+
+<!-- ============ EQUIPO ============ -->
+<div class="view" id="v-equipo" hidden>
+  <div class="tbar">
+    <span class="note">Toca una casilla para ponerte un item. Toca el candado de una pieza para fijarla: «Armar mi equipo» y «Quitar todo» no la tocan.</span>
+    <span style="flex:1"></span>
+    <button class="btn ghost sm" id="gearClear">Quitar todo</button>
+    <button class="btn ghost sm" id="codeBtn">Guardar / cargar código</button>
+  </div>
+  <div class="card" id="autoCard" style="margin-bottom:16px">
+    <h2 style="display:flex;justify-content:space-between;align-items:center">Auto-equipar <span class="note" style="font-family:Inter">Elige tus stats y te armo el mejor equipo con ellas</span></h2>
+    <div class="autogrid">
+      <div>
+        <label class="lbl">1. Stats que deben tener tus items (toca para elegir)</label>
+        <div class="chips" id="apChips"></div>
+        <div class="row" style="margin-top:8px;gap:6px"><button class="btn ghost sm" id="apSuggest" style="flex:0 0 auto">Sugerido para mi clase</button><button class="btn ghost sm" id="apClear" style="flex:0 0 auto">Vaciar</button><span></span></div>
+      </div>
+      <div>
+        <label class="lbl">Tus stats elegidas</label>
+        <ol class="plist2" id="apList"></ol>
+        <p class="note" style="margin-top:8px">En cada casilla se elige primero un item que tenga <b>todas</b> tus stats; si no existe, el que tenga más de ellas. Entre esos, gana el que más sume.</p>
+      </div>
+      <div>
+        <label class="lbl">2. Opciones</label>
+        <div class="note" style="margin-bottom:4px">Nivel requerido de los items</div>
+        <div class="row" style="margin-bottom:6px"><input type="number" id="apMin" min="1" max="60" placeholder="desde"><input type="number" id="apMax" min="1" max="60" placeholder="hasta"></div>
+        <div class="chips" id="apRange" style="margin-bottom:8px"><button class="chip" data-r="all">Todo hasta mi nivel</button><button class="chip" data-r="5">Últimos 5 niveles</button><button class="chip" data-r="10">Últimos 10</button></div>
+        <div class="note" id="apRangeTxt" style="margin:-4px 0 8px"></div>
+        <select id="apArmor" style="margin-bottom:8px"></select>
+        <select id="apSet" style="margin-bottom:8px"></select>
+        <select id="apQ" style="margin-bottom:8px"><option value="0">Cualquier calidad</option><option value="2">Mínimo verde</option><option value="3">Mínimo azul</option><option value="4">Solo épicos</option></select>
+        <label class="note ck"><input type="checkbox" id="apWeap" checked> Incluir armas</label>
+        <label class="note ck"><input type="checkbox" id="apEmpty"> Solo rellenar casillas vacías</label>
+        <label class="note ck"><input type="checkbox" id="apEst"> Ignorar items aún ocultos en Forever</label>
+        <label class="note ck"><input type="checkbox" id="apAH"> Solo items de subasta (no ligados al recogerlo)</label>
+        <div id="apProfBox" hidden style="margin:6px 0 0 22px">
+          <div class="note" style="margin-bottom:4px">Tus profesiones (también cuenta lo que puedes fabricar, aunque se ligue):</div>
+          <div id="apProfs" style="display:flex;flex-direction:column;gap:4px"></div>
+        </div>
+        <button class="btn" id="apGo" style="width:100%;margin-top:10px">Armar mi equipo</button>
+        <div class="note" id="apMsg" style="margin-top:6px"></div>
+      </div>
+    </div>
+  </div>
+  <div class="doll">
+    <div class="col left" id="colL"></div>
+    <div class="center">
+      <div class="bottom" id="colB" style="margin:0 0 12px"></div>
+      <div class="statcols">
+        <div class="statbox"><h3>Atributos</h3><div id="stPrim"></div></div>
+        <div class="statbox"><h3>Combate</h3><div id="stCombat"></div></div>
+      </div>
+      <div class="statbox" style="margin-top:12px"><h3>Defensa y regeneración</h3><div id="stDef" style="columns:2 220px"></div></div>
+      <div class="statbox" style="margin-top:12px"><h3>Otras estadísticas del equipo</h3><div id="stOther"></div></div>
+      <div class="statbox" style="margin-top:12px"><h3>Sets y talentos</h3><div id="stSets" class="note"></div></div>
+    </div>
+    <div class="col right" id="colR"></div>
+  </div>
+  <p class="note" id="statNote" style="margin-top:14px">Estadísticas calculadas con las fórmulas de WoW Forever (base de clase y raza, equipo, raciales y talentos). Los valores marcados «est.» por debajo de nivel 60 son estimados. No se cuentan buffs, formas de druida ni efectos temporales.</p>
+</div>
+
+<!-- ============ TALENTOS ============ -->
+<div class="view" id="v-talentos" hidden>
+  <div class="tbar">
+    <div class="pts">Puntos: <b id="tLeft">51</b> libres de <span id="tTotal">51</span></div>
+    <div class="note" id="tSplit"></div>
+    <span style="flex:1"></span>
+    <label class="note" style="display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="tRemove"> Modo quitar (móvil)</label>
+    <button class="btn ghost sm" id="tReset">Reiniciar talentos</button>
+  </div>
+  <div class="trees" id="trees"></div>
+  <p class="note" style="margin-top:12px">Los nombres y descripciones de talentos en español son una traducción propia de la app (no hay traducción oficial disponible); pasa el ratón para ver también el nombre en inglés. Clic para sumar un punto, clic derecho (o «Modo quitar») para restar. Cada fila pide 5 puntos más en esa rama; las flechas marcan talentos que requieren otro al máximo. Los talentos se guardan por clase junto con tu equipo.</p>
+</div>
+
+<!-- ============ SETS ============ -->
+<div class="view" id="v-sets" hidden>
+  <div class="tbar" style="flex-wrap:wrap">
+    <input type="text" id="setSearch" placeholder="Buscar set o pieza…" style="max-width:280px">
+    <div class="chips" id="setArmor"></div>
+    <label class="note ck" style="margin:0"><input type="checkbox" id="setUse" checked> Solo lo que mi clase puede usar</label>
+    <label class="note ck" style="margin:0"><input type="checkbox" id="setLvl"> Hasta mi nivel</label>
+    <span class="note" id="setCount" style="margin-left:auto"></span>
+  </div>
+  <div class="setgrid" id="setList"></div>
+  <p class="note" style="margin-top:12px">Un set aparece si tu clase puede usar al menos 2 de sus piezas (por ejemplo, un chamán ve sets de tela, cuero y malla, pero no de placas, y la malla solo desde nivel 40). Los datos no incluyen el texto de las bonificaciones de set; míralas en el juego o en Wowhead.</p>
+</div>
+
+<footer class="view note" style="padding-top:0" id="foot">Datos del cliente de WoW Forever (build 1.60.1) recopilados por proyectos abiertos: <a style="color:var(--gold2)" href="https://github.com/gBlaku/wow-forever-kb">wow-forever-kb</a> (items y fuentes), <a style="color:var(--gold2)" href="https://github.com/Nastyschmo/AeternumGuildLootAwarder">AeternumGuildLootAwarder</a> (iconos, talentos y estadísticas base) e iconos de <a style="color:var(--gold2)" href="https://github.com/ZHamburglar/wow-forever-icons-and-macros">wow-forever-icons-and-macros</a>. Stats confirmadas en el juego (caché de hotfixes de Blizzard, build 1.60.1.71037) de <a style="color:var(--gold2)" href="https://github.com/wowsims/forever">wowsims/forever</a>. Arte © Blizzard Entertainment. Items marcados <span class="tag warn">Classic</span>: aún ocultos en Forever, stats de Classic. Los iconos con borde punteado son aproximados (el item no tiene icono en los datos). Nombres de items en español tomados del cliente del juego (proyecto <a style="color:var(--gold2)" href="https://github.com/fitzforge/polestar">polestar</a>); si falta la traducción se muestra el nombre en inglés. Los talentos en español son una traducción propia de la app.</footer>
+
+<div id="tip" hidden></div>
+<div id="detail" hidden></div>
+
+<dialog id="picker">
+  <div class="dlg-h"><h3 id="pkTitle">Elegir item</h3><div class="row" style="flex:0 0 auto"><button class="btn ghost sm" id="pkRemove">Quitar item</button><button class="btn ghost sm" id="pkClose">Cerrar</button></div></div>
+  <div class="dlg-b">
+    <div class="row"><input type="text" id="pkSearch" placeholder="Buscar por nombre…" style="flex:2">
+      <select id="pkSort" style="flex:1"></select></div>
+    <div class="row" style="margin-top:8px;flex-wrap:wrap;gap:14px">
+      <label class="note" style="flex:0 0 auto;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="pkLvl" checked> Hasta mi nivel</label>
+      <label class="note" style="flex:0 0 auto;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="pkCls" checked> Usable por mi clase</label>
+      <label class="note" style="flex:0 0 auto;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="pkAH"> Solo de subasta</label>
+      <label class="note" style="flex:0 0 auto;display:flex;gap:6px;align-items:center;cursor:pointer">Calidad mín. <select id="pkQ" style="width:auto;padding:3px 6px"><option value="0">Todas</option><option value="2">Verde</option><option value="3">Azul</option><option value="4">Morado</option></select></label>
+      <span class="note" id="pkCount" style="flex:1;text-align:right"></span>
+    </div>
+    <div class="plist" id="pkList"></div>
+  </div>
+</dialog>
+
+<dialog id="codeDlg">
+  <div class="dlg-h"><h3>Guardar o cargar personaje</h3><button class="btn ghost sm" onclick="this.closest('dialog').close()">Cerrar</button></div>
+  <div class="dlg-b">
+    <p class="note">Tu personaje se guarda solo en este navegador. Para pasarlo a otro dispositivo o a un amigo, copia este código y pégalo allí.</p>
+    <textarea id="codeTxt" rows="4"></textarea>
+    <div class="row" style="margin-top:8px"><button class="btn" id="codeCopy">Copiar código</button><button class="btn ghost" id="codeLoad">Cargar el código pegado</button></div>
+    <div class="note" id="codeMsg" style="margin-top:6px"></div>
+  </div>
+</dialog>
+
+<script>
+/* ===================== catálogos ===================== */
+const ARMOR_T=[["Cloth","Tela"],["Leather","Cuero"],["Mail","Malla"],["Plate","Placas"],["Shield","Escudo"],["Miscellaneous","Accesorios"],["Totem","Tótem"],["Idol","Ídolo"],["Libram","Tratado"],["Cosmetic","Cosmético"]];
+const WEAP_T=[["Dagger","Daga"],["One-Handed Sword","Espada 1M"],["Two-Handed Sword","Espada 2M"],["One-Handed Mace","Maza 1M"],["Two-Handed Mace","Maza 2M"],["One-Handed Axe","Hacha 1M"],["Two-Handed Axe","Hacha 2M"],["Staff","Bastón"],["Polearm","Arma de asta"],["Fist Weapon","Puño"],["Wand","Varita"],["Bow","Arco"],["Gun","Arma de fuego"],["Crossbow","Ballesta"],["Thrown","Arrojadiza"],["Fishing Pole","Caña"],["Miscellaneous","Otras"],["Exotic","Exótica"]];
+const TL=Object.fromEntries([...ARMOR_T.map(a=>["A:"+a[0],a[1]]),...WEAP_T.map(a=>["W:"+a[0],a[1]])]);
+const STATS=[["sta","Aguante",["aguante","stamina","resistencia","sta"]],["agi","Agilidad",["agilidad","agility","agi"]],["int","Intelecto",["intelecto","intellect","inteligencia","int"]],["str","Fuerza",["fuerza","strength","str"]],["spi","Espíritu",["espiritu","spirit"]],
+ ["crit","Crítico",["critico","crit"]],["hit","Golpe",["golpe","hit","acierto"]],["ap","P. ataque",["poder de ataque","attack power","ap"]],["sp","Daño y sanación",["poder con hechizos","poder de hechizos","spell power","sp","dano de hechizos"]],["heal","Sanación",["sanacion","curacion","healing"]],["sd","Daño hechizos",["spell damage"]],["mp5","Maná/5s",["mp5","mana"]],["def","Defensa",["defensa","defense"]]];
+const STATS2=[["dodge","Esquivar",["esquivar","esquiva","dodge"]],["parry","Parada",["parada","parry"]],["block","Bloqueo",["bloqueo","block"]],["bv","Valor bloqueo",["valor de bloqueo"]],["exp","Pericia",["pericia","expertise"]],["haste","Celeridad",["celeridad","haste"]],["rap","P. ataque a dist.",["ataque a distancia"]],["hp5","Salud/5s",["hp5"]],["spen","Pen. hechizos",["penetracion"]],["barm","Armadura extra",["armadura extra"]],
+ ["dps","DPS de arma",["dps"]],["arm","Armadura total",["armadura total"]],["rfire","Res. fuego",["resistencia al fuego","res fuego"]],["rfrost","Res. escarcha",["res escarcha"]],["rnat","Res. naturaleza",["res naturaleza"]],["rsha","Res. sombras",["res sombras"]],["rarc","Res. arcana",["res arcana"]]];
+const ALLST=[...STATS,...STATS2]; const SL=Object.fromEntries(ALLST.map(s=>[s[0],s[1]]));
+const SLOT_ES={"Head":"Cabeza","Neck":"Cuello","Shoulder":"Hombros","Shirt":"Camisa","Chest":"Pecho","Waist":"Cintura","Legs":"Piernas","Feet":"Pies","Wrist":"Muñecas","Hands":"Manos","Finger":"Dedo","Trinket":"Abalorio","Back":"Espalda","Shield":"Escudo","Held In Off-hand":"Sostener mano izq.","Relic":"Reliquia","Tabard":"Tabardo","Main Hand":"Mano derecha","Off Hand":"Mano izquierda","One-Hand":"Una mano","Two-Hand":"Dos manos","Ranged":"A distancia","Thrown":"Arrojadiza"};
+const SLOT_AL={head:"Head",helm:"Head",neck:"Neck",shoulder:"Shoulder",shoulders:"Shoulder",chest:"Chest",waist:"Waist",belt:"Waist",legs:"Legs",feet:"Feet",boots:"Feet",wrist:"Wrist",bracers:"Wrist",hands:"Hands",gloves:"Hands",ring:"Finger",rings:"Finger",trinket:"Trinket",trinkets:"Trinket",cloak:"Back",back:"Back",cabeza:"Head",casco:"Head",yelmo:"Head",cuello:"Neck",collar:"Neck",amuleto:"Neck",hombros:"Shoulder",hombreras:"Shoulder",pecho:"Chest",peto:"Chest",tunica:"Chest",cintura:"Waist",cinturon:"Waist",faja:"Waist",piernas:"Legs",pantalones:"Legs",grebas:"Legs",pies:"Feet",botas:"Feet",munecas:"Wrist",brazales:"Wrist",manos:"Hands",guantes:"Hands",anillo:"Finger",anillos:"Finger",dedo:"Finger",abalorio:"Trinket",abalorios:"Trinket",capa:"Back",espalda:"Back",capas:"Back"};
+const ARMOR_AL={tela:"Cloth",cloth:"Cloth",cuero:"Leather",leather:"Leather",malla:"Mail",mail:"Mail",placas:"Plate",placa:"Plate",plate:"Plate",escudo:"Shield",escudos:"Shield"};
+const WEAP_AL={dagger:"Dagger",daggers:"Dagger",staff:"Staff",staves:"Staff",wand:"Wand",wands:"Wand",bow:"Bow",bows:"Bow",crossbow:"Crossbow",gun:"Gun",guns:"Gun",polearm:"Polearm",thrown:"Thrown",daga:"Dagger",dagas:"Dagger",baston:"Staff",bastones:"Staff",varita:"Wand",varitas:"Wand",arco:"Bow",arcos:"Bow",ballesta:"Crossbow",rifle:"Gun",escopeta:"Gun",asta:"Polearm",lanza:"Polearm",puno:"Fist Weapon",punos:"Fist Weapon",arrojadiza:"Thrown"};
+const SRC=[["d","Botín"],["q","Misión"],["c","Fabricado"],["v","Vendedor"],["k","Contenedor"]];
+const QN={0:"Pobre",1:"Común",2:"Poco común",3:"Raro",4:"Épico",5:"Legendario",7:"Reliquia"};
+const CLASS_ES={Warrior:"Guerrero",Paladin:"Paladín",Hunter:"Cazador",Rogue:"Pícaro",Priest:"Sacerdote",Shaman:"Chamán",Mage:"Mago",Warlock:"Brujo",Druid:"Druida"};
+const RACE_ES={"Human":"Humano","Orc":"Orco","Dwarf":"Enano","Night Elf":"Elfo de la noche","Undead":"No-muerto","Tauren":"Tauren","Gnome":"Gnomo","Troll":"Trol","High Order Skyborne":"Skyborne (Alta Orden)","Windshaper Skyborne":"Skyborne (Formavientos)"};
+const TREE_ES={"Arms":"Armas","Fury":"Furia","Protection":"Protección","Holy":"Sagrado","Retribution":"Reprensión","Beast Mastery":"Dominio de bestias","Marksmanship":"Puntería","Survival":"Supervivencia","Assassination":"Asesinato","Combat":"Combate","Subtlety":"Sutileza","Discipline":"Disciplina","Shadow":"Sombra","Elemental":"Elemental","Enhancement":"Mejora","Restoration":"Restauración","Arcane":"Arcano","Fire":"Fuego","Frost":"Escarcha","Affliction":"Aflicción","Demonology":"Demonología","Destruction":"Destrucción","Balance":"Equilibrio","Feral Combat":"Combate feral"};
+const DUAL=new Set(["Warrior","Rogue","Hunter","Shaman"]);
+const PD=[
+ ["head","Cabeza",["Head"],"L"],["neck","Cuello",["Neck"],"L"],["shoulder","Hombros",["Shoulder"],"L"],["back","Espalda",["Back"],"L"],["chest","Pecho",["Chest"],"L"],["shirt","Camisa",["Shirt"],"L"],["tabard","Tabardo",["Tabard"],"L"],["wrist","Muñecas",["Wrist"],"L"],
+ ["hands","Manos",["Hands"],"R"],["waist","Cintura",["Waist"],"R"],["legs","Piernas",["Legs"],"R"],["feet","Pies",["Feet"],"R"],["finger1","Dedo 1",["Finger"],"R"],["finger2","Dedo 2",["Finger"],"R"],["trinket1","Abalorio 1",["Trinket"],"R"],["trinket2","Abalorio 2",["Trinket"],"R"],
+ ["main","Mano derecha",["Main Hand","One-Hand","Two-Hand"],"B"],["off","Mano izquierda",["Off Hand","Shield","Held In Off-hand"],"B"],["ranged","A distancia / Reliquia",["Ranged","Thrown","Relic"],"B"]];
+const PDK=Object.fromEntries(PD.map(p=>[p[0],p]));
+
+/* ===================== IDIOMA ===================== */
+const LANGS={en:"English",esMX:"Español (Latinoamérica)",esES:"Español (España)"};
+const LANG=(()=>{const wn=(window.name||"").match(/wowf_lang=(\w+)/);if(wn&&LANGS[wn[1]])return wn[1];try{const l=localStorage.getItem("wowf_lang");if(l&&LANGS[l])return l;}catch{}return /^es/i.test(navigator.language||"")?"esMX":"en";})();
+const EN=LANG==="en";
+const WH={en:"",esMX:"mx/",esES:"es/"}[LANG];
+document.documentElement.lang=EN?"en":"es";
+if(EN){
+  const STAT_EN={sta:"Stamina",agi:"Agility",int:"Intellect",str:"Strength",spi:"Spirit",crit:"Crit",hit:"Hit",ap:"Attack Power",sp:"Damage & Healing",heal:"Healing",sd:"Spell Damage",mp5:"Mana/5s",def:"Defense",dodge:"Dodge",parry:"Parry",block:"Block",bv:"Block Value",exp:"Expertise",haste:"Haste",rap:"Ranged AP",hp5:"Health/5s",spen:"Spell Penetration",barm:"Bonus Armor",rfire:"Fire Res.",rfrost:"Frost Res.",rnat:"Nature Res.",rsha:"Shadow Res.",rarc:"Arcane Res.",dps:"Weapon DPS",arm:"Total Armor"};
+  [...STATS,...STATS2].forEach(s=>s[1]=STAT_EN[s[0]]||s[1]);
+  ARMOR_T.forEach(a=>a[1]=a[0]==="Miscellaneous"?"Accessories":a[0]);
+  WEAP_T.forEach(a=>a[1]={"One-Handed Sword":"1H Sword","Two-Handed Sword":"2H Sword","One-Handed Mace":"1H Mace","Two-Handed Mace":"2H Mace","One-Handed Axe":"1H Axe","Two-Handed Axe":"2H Axe","Miscellaneous":"Other"}[a[0]]||a[0]);
+  Object.assign(TL,Object.fromEntries([...ARMOR_T.map(a=>["A:"+a[0],a[1]]),...WEAP_T.map(a=>["W:"+a[0],a[1]])]));
+  Object.assign(SL,Object.fromEntries(ALLST.map(s=>[s[0],s[1]])));
+  for(const k in SLOT_ES)SLOT_ES[k]=k;
+  Object.assign(QN,{0:"Poor",1:"Common",2:"Uncommon",3:"Rare",4:"Epic",5:"Legendary",7:"Heirloom"});
+  for(const k in CLASS_ES)CLASS_ES[k]=k; for(const k in RACE_ES)RACE_ES[k]=k; for(const k in TREE_ES)TREE_ES[k]=k;
+  SRC.forEach(s=>s[1]={d:"Drop",q:"Quest",c:"Crafted",v:"Vendor",k:"Container"}[s[0]]);
+  PD.forEach(p=>p[1]={head:"Head",neck:"Neck",shoulder:"Shoulders",back:"Back",chest:"Chest",shirt:"Shirt",tabard:"Tabard",wrist:"Wrists",hands:"Hands",waist:"Waist",legs:"Legs",feet:"Feet",finger1:"Ring 1",finger2:"Ring 2",trinket1:"Trinket 1",trinket2:"Trinket 2",main:"Main hand",off:"Off hand",ranged:"Ranged / Relic"}[p[0]]);
+}
+/* Traducción de la interfaz (texto fijo y plantillas) al inglés */
+const D={"Cargando base de datos…":"Loading database…","Buscador":"Search","Mi equipo":"My gear","Talentos":"Talents","Nivel":"Level","Armadura":"Armor","Armas":"Weapons","Estadísticas":"Stats","Más estadísticas":"More stats","El item debe tener":"Item must have","Todas":"All","Al menos una":"At least one","Ranura":"Slot","Calidad mínima":"Minimum quality","Cualquiera":"Any","Poco común (verde)":"Uncommon (green)","Raro (azul)":"Rare (blue)","Épico (morado)":"Epic (purple)","Legendario":"Legendary","Cómo se consigue":"How to get it","Solo lo que mi clase puede usar":"Only what my class can use","Ocultar items aún ocultos en Forever":"Hide items still hidden in Forever","Limpiar filtros":"Clear filters","Buscar":"Search","Copiar resultados":"Copy results","Cargando items…":"Loading items…","Ningún item cumple esos filtros.":"No items match those filters.","Mostrar más":"Show more","Item":"Item","Tipo":"Type","ilvl":"ilvl","Todas ":"All",
+"Toca una casilla para ponerte un item. Pasa el ratón por encima para ver su descripción.":"Tap a slot to equip an item. Hover to see its tooltip.","Quitar todo":"Remove all","Guardar / cargar código":"Save / load code","Atributos":"Attributes","Combate":"Combat (approx.)","Otras estadísticas del equipo":"Other gear stats","Sets":"Sets","Vida":"Health","Maná":"Mana","Crítico físico":"Melee crit","Crítico hechizos":"Spell crit","Golpe":"Hit","Celeridad":"Haste","Esquivar (equipo)":"Dodge (gear)","Parada (equipo)":"Parry (gear)","Defensa":"Defense","Pericia":"Expertise","Fuerza":"Strength","Agilidad":"Agility","Aguante":"Stamina","Intelecto":"Intellect","Espíritu":"Spirit","Ningún set equipado.":"No set equipped.","Ponte items para ver sus estadísticas aquí.":"Equip items to see their stats here.","Vacío":"Empty","Ocupada por arma a dos manos":"Taken by a two-handed weapon","· no usable":"· not usable",
+"Auto-equipar":"Auto-equip","Elige tus stats y te armo el mejor equipo con ellas":"Pick your stats by priority and I'll build the best gear","1. Stats que deben tener tus items (toca para elegir)":"1. Stats by priority (tap to add)","Sugerido para mi clase":"Suggested for my class","Vaciar":"Clear","Tu orden de prioridad":"Your priority order","2. Opciones":"2. Options","Armadura: cualquiera que pueda usar":"Armor: any I can wear","Armadura: la mejor de mi clase":"Armor: best for my class","Set: ignorar (cualquier pieza)":"Set: ignore (any piece)","Cualquier calidad":"Any quality","Mínimo verde":"Green or better","Mínimo azul":"Blue or better","Solo épicos":"Epics only","Incluir armas":"Include weapons","Solo rellenar casillas vacías":"Only fill empty slots","Ignorar items aún ocultos en Forever":"Ignore items still hidden in Forever","Armar mi equipo":"Build my gear","Toca stats a la izquierda. La primera es la que más pesa.":"Tap stats on the left. The first one weighs the most.","Elige al menos una estadística.":"Pick at least one stat.","Subir":"Up","Bajar":"Down","Quitar":"Remove",
+"Elegir item":"Choose item","Quitar item":"Remove item","Cerrar":"Close","Buscar por nombre…":"Search by name…","Hasta mi nivel":"Up to my level","Usable por mi clase":"Usable by my class","Calidad mín.":"Min. quality","Verde":"Green","Azul":"Blue","Morado":"Purple","No hay items para esta casilla con esos filtros.":"No items for this slot with those filters.","equipado":"equipped",
+"Guardar o cargar personaje":"Save or load character","Tu personaje se guarda solo en este navegador. Para pasarlo a otro dispositivo o a un amigo, copia este código y pégalo allí.":"Your character is saved in this browser only. To move it to another device or a friend, copy this code and paste it there.","Copiar código":"Copy code","Cargar el código pegado":"Load pasted code","Código copiado.":"Code copied.","Selecciónalo y cópialo a mano.":"Select it and copy it manually.","Personaje cargado.":"Character loaded.","Ese código no es válido.":"That code is not valid.",
+"Puntos:":"Points:","libres de":"free of","Modo quitar (móvil)":"Remove mode (mobile)","Reiniciar talentos":"Reset talents","Siguiente rango:":"Next rank:","Clic: sumar · Clic derecho: restar":"Click: add · Right-click: remove","Toca para sumar · activa «Modo quitar» para restar":"Tap to add · turn on “Remove mode” to subtract",
+"Se liga al recogerlo":"Binds when picked up","Se liga al equiparlo":"Binds when equipped","Se liga al usarlo":"Binds when used","Aún oculto en Forever: stats de Classic":"Still hidden in Forever: Classic stats","Si cambias tu equipado:":"If you swap your equipped item:","Copiar nombre (subasta)":"Copy name (auction house)","Copiar en inglés":"Copy English name","Wowhead ↗":"Wowhead ↗","No se puede equipar en ninguna casilla con tu clase.":"Your class can't equip this in any slot.","✓ Equipado":"✓ Equipped","¡Copiado!":"Copied!","No se pudo copiar":"Couldn't copy","Copiados los 500 primeros":"Copied the first 500","Error al cargar.":"Loading error.","No reconocí tipos ni estadísticas; usa los filtros de la izquierda.":"I didn't recognize types or stats; use the filters on the left.","Mejor para mi clase":"Best for my class","Mis prioridades":"My priorities","Nivel de objeto":"Item level","Requiere nivel":"Requires level","Clases:":"Classes:","Todas":"All","todos los tipos":"all types","Clase":"Class","Raza":"Race","Idioma / Language":"Language","Accesorios":"Accessories","nivel mín":"min level","nivel máx":"max level","Nivel requerido":"Required level","Nivel requerido de los items":"Item required level","Poder de ataque":"Attack power","Tus profesiones (también cuenta lo que puedes fabricar, aunque se ligue):":"Your professions (items you can craft count too, even if they bind):","puedes fabricarlo":"you can craft it","Solo items de subasta (no ligados) o de tus profesiones":"Auction house items (unbound) or from your professions","Solo items de subasta (no ligados al recogerlo)":"Auction house items only (not Bind on Pickup)","Solo de subasta":"Auction only","Solo items de subasta (no ligados)":"Auction house items only (unbound)","No se liga (se puede comerciar)":"Does not bind (tradeable)","subasta":"auction","1. Stats que deben tener tus items (toca para elegir)":"1. Stats your items must have (tap to choose)","Tus stats elegidas":"Your chosen stats","Elige tus stats y te armo el mejor equipo con ellas":"Choose your stats and I'll build the best gear with them","Toca stats a la izquierda. Los items tendrán que tener esas stats.":"Tap stats on the left. Items will need to have them.","Mis stats":"My stats","✓ todas":"✓ all","equipado":"equipped","Toca una casilla para ponerte un item. Toca el candado de una pieza para fijarla: «Armar mi equipo» y «Quitar todo» no la tocan.":"Tap a slot to equip an item. Tick ✓ on a piece to lock it: “Build my gear” and “Remove all” leave it alone.","Fijar esta pieza":"Lock this piece","Pieza fijada: «Armar mi equipo» no la cambia":"Locked: “Build my gear” won't change it","Defensa y regeneración":"Defense and regeneration","Esquivar":"Dodge","Parada":"Parry","Bloqueo":"Block","Valor de bloqueo":"Block value","Maná/5 s (sin lanzar)":"Mana/5 s (not casting)","Maná/5 s (lanzando)":"Mana/5 s (casting)","P. ataque a distancia":"Ranged attack power","Sets y talentos":"Sets and talents","Sets":"Sets","Buscar set o pieza…":"Search set or piece…","Hasta mi nivel":"Up to my level","Equipar las piezas que puedo usar":"Equip the pieces I can use","No hay sets con esos filtros.":"No sets match those filters.","Origen desconocido":"Unknown source","Talentos que suman stats:":"Talents adding stats:","ninguno (ve a la pestaña Talentos)":"none (go to the Talents tab)","Golpe con hechizos":"Spell hit","Daño con hechizos":"Spell damage","Sanación":"Healing","Poder de ataque (equipo)":"Attack power (gear)","Esquivar (equipo+tal.)":"Dodge (gear+talents)","Parada (equipo+tal.)":"Parry (gear+talents)","Bloqueo (talentos)":"Block (talents)","(texto de Classic, puede haber cambiado)":"(Classic text, may have changed)","DPS de arma":"Weapon DPS","Armadura total":"Total Armor","Todo hasta mi nivel":"Everything up to my level","Últimos 5 niveles":"Last 5 levels","Últimos 10":"Last 10","El nivel «desde» es mayor que «hasta».":"“From” level is higher than “to”."};
+const P=[[/^Los nombres y descripciones de talentos en español.*/,"Click to add a point, right-click (or “Remove mode”) to remove one. Each row needs 5 more points in that tree; arrows mark talents that need another one maxed. Talents are saved per class with your gear."],[/^Un set aparece si.*/,"A set is listed if your class can use at least 2 of its pieces (e.g. a shaman sees cloth, leather and mail sets but not plate, and mail only from level 40). The data has no set bonus text; check it in game or on Wowhead."],[/^Los atributos suman la base de tu clase.*/,"Attributes add your class and race base at your level, gear, racials and your talents' passive bonuses, using WoW Forever formulas from the wowsims/forever simulator (client tables 1.60.1): dodge and crit per agility by class (double dodge for rogues and hunters), spell crit per intellect, attack power from strength/agility, 10 health per stamina, 15 mana per intellect, 6.25 + spirit/8 mana per second regen and 0.04% avoidance per defense point. Hover ⓘ for the breakdown. Values marked “est.” below level 60 use the estimated rating curve. Buffs, druid forms and temporary effects are not counted."],[/^__unused__$/,"Attributes add your class and race base at your level, your gear and your talents' passive bonuses (e.g. “+10% intellect” or “+6% dodge”). Temporary, form and active-ability effects are not counted. Health, mana, armor and % are approximate."],[/^\(\+(\d+) tal\.\)$/,"(+$1 tal.)"],[/^Nivel (\d+)–(\d+)$/,"Level $1–$2"],[/^Nivel (\d+)$/,"Level $1"],[/^(\d+) sets$/,"$1 sets"],[/ · usables por ti: (\d+)/," · usable by you: $1"],[/ piezas( · |$)/," pieces$1"],[/^✓ (\d+) piezas equipadas$/,"✓ $1 pieces equipped"],[/ · niv /," · lvl "],[/todos los tipos/,"all types"],[/^Sin requisito de nivel · contenido de nivel ~(\d+)$/,"No level requirement · level ~$1 content"],[/^(\d+) - (\d+) de daño$/,"$1 - $2 Damage"],[/^Velocidad (.*)$/,"Speed $1"],[/^\((.*) daño por segundo\)$/,"($1 damage per second)"],[/^✓ Stats confirmadas con datos en vivo de Forever( · item nuevo)?$/,(m,a)=>"✓ Stats confirmed with live Forever data"+(a?" · new item":"")],[/^(.*): ningún arma tiene tus stats, puse la de más DPS\.$/,"$1: no weapon has your stats, I picked the highest DPS one."],[/^Buscando items de nivel (\d+) a (\d+)\.$/,"Searching items of level $1 to $2."],[/^Rango muy estrecho \((.*)\): habrá pocas piezas\. .*$/,"Very narrow range ($1): few pieces. For the best at your level use “Everything up to my level”."],[/^Ojo: «hasta» \((\d+)\) es mayor que tu nivel \((\d+)\).*$/,"Careful: “to” ($1) is above your level ($2); you won't be able to use those pieces."],[/^Sin item: (.*)\. No hay piezas con (.*) entre nivel (\d+) y (\d+)(.*)\.$/,(m,a,b,c,d,e)=>`No item: ${a}. No pieces with ${b} between level ${c} and ${d}${e.replace(" con esa armadura"," with that armor").replace(" — amplía el rango con «Todo hasta mi nivel»"," — widen the range with “Everything up to my level”")}.`],[/^Ordenado por tus prioridades \((.*)\) · nivel (.*)\. Las 3 primeras son tus mejores opciones\.$/,"Sorted by your priorities ($1) · level $2. The top 3 are your best options."],[/^Ordenar: (.*)$/,(m,x)=>"Sort: "+(D[x]||x)],[/^Solo items que puedo usar a mi nivel \(/,"Only items I can use at my level ("],[/^Escribe lo que buscas: .*$/,"Type what you want: “leather boots with agility”, “epic daggers”, “rings with intellect level 50 to 60”…"],[/^Filtrar por nombre del item, set o fuente…$/,"Filter by item name, set or source…"],
+ [/^Requiere nivel (\d+)$/,"Requires level $1"],[/^Nivel de objeto (\d+)$/,"Item level $1"],[/^(\d+) de armadura$/,"$1 Armor"],[/^Rango (\d+)\/(\d+)$/,"Rank $1/$2"],[/^Requiere (\d+) puntos en (.*)$/,"Requires $1 points in $2"],[/^Requiere (.*) al máximo$/,"Requires $1 at max rank"],[/ armadura$/," armor"],
+ [/ items · /," items · "],[/ · con alguna de: /," · with any of: "],[/ · con /," · with "],[/ · hasta nivel (\d+)/," · up to level $1"],[/^Mostrar más \((\d+) de (\d+)\)$/,"Show more ($1 of $2)"],
+ [/^Entendí → /,"Understood → "],[/tipo: /g,"type: "],[/ \(todas\)/g," (all)"],[/ \(al menos una\)/g," (at least one)"],[/ranura: /g,"slot: "],[/calidad ≥ /g,"quality ≥ "],[/(^| · )nivel /g,"$1level "],
+ [/^Elegir: /,"Choose: "],[/^Ordenar: /,"Sort: "],[/(\d+) items \(mostrando 300\)/,"$1 items (showing 300)"],[/^Ordenado por tus prioridades \((.*)\) · nivel (.*)\. Las 3 primeras son tus mejores opciones\.$/,"Sorted by your priorities ($1) · level $2. The top 3 are your best options."],
+ [/^equipado · /,"equipped · "],[/^Armadura: solo /,"Armor: only "],[/^Set: /,"Set: "],[/ \((\d+) piezas\)$/," ($1 pieces)"],[/ — (\d+) piezas?$/," — $1 pieces"],[/^desde 1$/,"from 1"],[/^hasta (\d+)$/,"to $1"],[/^desde$/,"from"],[/^hasta$/,"to"],
+ [/^Listo: (\d+) piezas equipadas(?: \((\d+) fijadas sin cambiar\))? · (\d+) con todas tus stats · \+(\d+) en total(.*)\. Toca una pieza para ver tus mejores alternativas\.$/,(m,a,b,c,d,e)=>`Done: ${a} pieces equipped${b?` (${b} locked, unchanged)`:""} · ${c} with all your stats · +${d} total${e.replace(" · solo items de subasta"," · auction items only").replace(" y de tus profesiones"," and your professions")}. Tap a piece to see your best alternatives.`],[/^Ordenado por tus stats \((.*)\): primero los que las tienen todas · nivel (.*)\. Las 3 primeras son tus mejores opciones\.$/,"Sorted by your stats ($1): items with all of them first · level $2. The top 3 are your best options."],[/ piezas de /," pieces of "],
+ [/^Equipar en /,"Equip in "],[/^Clases: /,"Classes: "],[/^Datos del cliente de WoW Forever.*/,"Data from the WoW Forever client (build 1.60.1) compiled by open projects: "],
+ [/^(\d[\d.,]*) armaduras y armas · talentos de las 9 clases · WoW Forever 1\.60\.1 \(datos en vivo del 20 nov\.\)$/,"$1 armor pieces and weapons · talents for all 9 classes · WoW Forever 1.60.1 (live data from Nov 20)"],
+ [/^Clic para sumar un punto.*/,"Click to add a point, right-click (or “Remove mode”) to remove one. Each row needs 5 more points in that tree; arrows mark talents that need another one maxed. Talents are saved per class with your gear."],
+ [/^Los atributos suman la base.*/,"Attributes add your class and race base at your level plus your gear. Health, mana, armor and crit/hit % are approximate (Vanilla formulas and rating conversion at level 60); talents are not included."],
+ [/^Tu personaje se guarda.*/,"Your character is saved in this browser only. To move it to another device or a friend, copy this code and paste it there."],
+ [/^Copiar nombre \(subasta\)$/,"Copy name (auction house)"],[/^Copiados los 500 primeros$/,"Copied the first 500"],[/^Elige tus stats por prioridad.*/,"Pick your stats by priority and I'll build the best gear"],
+ [/^ pts$/," pts"],[/(\d) pts \(/,"$1 pts ("],[/^Usable por mi clase$/,"Usable by my class"],[/^No usable$/,"Not usable"],[/^ \(\+/," (+"],[/^Sostener mano izq\.$/,"Held in off-hand"]];
+function tr(s){const t=s.trim();if(!t)return s;if(D[t])return s.replace(t,D[t]);let r=t;for(const[re,to]of P)r=r.replace(re,to);return r===t?s:s.replace(t,r);}
+function trNode(root){
+  if(root.nodeType===3){const v=tr(root.nodeValue);if(v!==root.nodeValue)root.nodeValue=v;return;}
+  if(root.nodeType!==1||root.tagName==="SCRIPT"||root.tagName==="STYLE")return;
+  for(const a of ["placeholder","title"])if(root.hasAttribute&&root.hasAttribute(a))root.setAttribute(a,tr(root.getAttribute(a)));
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT|NodeFilter.SHOW_ELEMENT);let n;
+  while((n=w.nextNode())){if(n.nodeType===3){if(n.parentNode&&(n.parentNode.tagName==="SCRIPT"||n.parentNode.tagName==="STYLE"))continue;const v=tr(n.nodeValue);if(v!==n.nodeValue)n.nodeValue=v;}
+    else for(const a of ["placeholder","title"])if(n.hasAttribute(a))n.setAttribute(a,tr(n.getAttribute(a)));}
+}
+if(EN){const sn=document.getElementById("statNote");if(sn)sn.innerHTML='Stats calculated with WoW Forever formulas (class and race base, gear, racials and talents). Values marked “est.” below level 60 are estimates. Buffs, druid forms and temporary effects are not counted.';const f=document.getElementById("foot");if(f)f.innerHTML='Data from the WoW Forever client (build 1.60.1) compiled by open projects: <a style="color:var(--gold2)" href="https://github.com/gBlaku/wow-forever-kb">wow-forever-kb</a> (items and sources), <a style="color:var(--gold2)" href="https://github.com/Nastyschmo/AeternumGuildLootAwarder">AeternumGuildLootAwarder</a> (icons, talents and base stats), icons from <a style="color:var(--gold2)" href="https://github.com/ZHamburglar/wow-forever-icons-and-macros">wow-forever-icons-and-macros</a>, live in-game stats (Blizzard hotfix cache, build 1.60.1.71037) from <a style="color:var(--gold2)" href="https://github.com/wowsims/forever">wowsims/forever</a> and Spanish names from <a style="color:var(--gold2)" href="https://github.com/fitzforge/polestar">polestar</a>. Art © Blizzard Entertainment. Items marked <span class="tag warn">Classic</span> are still hidden in Forever (Classic stats). Icons with a dotted border are approximate.';trNode(document.body);new MutationObserver(ms=>{for(const m of ms){if(m.type==="characterData")trNode(m.target);else if(m.type==="attributes"){const v=m.target.getAttribute(m.attributeName);if(v){const t=tr(v);if(t!==v)m.target.setAttribute(m.attributeName,t);}}else m.addedNodes.forEach(trNode);}}).observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:["placeholder","title"]});}
+const PAGE=150;
+let ITEMS=[],BYID=new Map(),TAL=null,CD=null,AT={cols:40,t:40};
+const $=id=>document.getElementById(id);
+const norm=s=>String(s??"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").trim();
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const toggle=(s,v)=>s.has(v)?s.delete(v):s.add(v);
+const key=i=>(i.c?"W:":"A:")+i.t;
+const PROFS=["Blacksmithing","Leatherworking","Tailoring","Engineering","Enchanting","Alchemy"];
+const isAH=i=>!i.bu&&i.b!==1;
+function craftable(i){const P=(CH.auto&&CH.auto.profs)||{};if(!i.S)return false;return i.S.some(e=>e[0]==="c"&&e[1]&&P[e[1]]!==undefined&&(+P[e[1]]||300)>=(e[2]||0));}
+const obtainable=i=>isAH(i)||craftable(i);
+const sv=(i,k)=>k==="dps"?(i.dps||0):k==="arm"?(i.a||0):(i.st[k]||0);
+function ico(k,size,q,dotted){const s=size/AT.t;return `<span class="ico${q!=null?" bq"+q:""}" style="width:${size}px;height:${size}px;background-size:${AT.cols*size}px auto;background-position:-${(k%AT.cols)*size}px -${Math.floor(k/AT.cols)*size}px;${dotted?"border-style:dotted;":""}"></span>`;}
+function store(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v));}catch{return null;}}
+
+/* ===================== personaje ===================== */
+const CH={cls:"Mage",race:"1",lvl:60,gear:{},tal:{}};
+function saveCH(){store("wowf_char",CH);}
+function canUse(i,lvl=CH.lvl,cls=CH.cls){
+  if(i.cl && !i.cl.split(/,\s*/).includes(cls)) return false;
+  if(i.c===0){ if(i.t==="Miscellaneous"||i.t==="Cosmetic") return true;
+    const a=CD.armor.find(x=>x[0]===cls&&x[1]===i.t); return !!a && a[2]<=lvl; }
+  if(i.t==="Fishing Pole"||i.t==="Miscellaneous") return true;
+  return CD.weap.some(x=>x[0]===cls&&x[1]===i.t);
+}
+function fitsSlot(i,slot,cls=CH.cls){
+  const p=PDK[slot]; if(!p) return false;
+  if(slot==="off"){ if(i.s==="One-Hand") return DUAL.has(cls); if(i.s==="Off Hand") return DUAL.has(cls); }
+  return p[2].includes(i.s) && !(i.c===0 && i.s==="Two-Hand");
+}
+function slotsFor(i){return PD.filter(p=>fitsSlot(i,p[0])).map(p=>p[0]);}
+
+/* ===================== tooltip ===================== */
+const tip=$("tip");
+function itemTip(i,cmp){
+  const bind=i.bu?"":({0:"No se liga (se puede comerciar)",1:"Se liga al recogerlo",2:"Se liga al equiparlo",3:"Se liga al usarlo"}[i.b]||"");
+  const usable=canUse(i);
+  let h=`<h4 class="q${i.q}">${esc(i.n)}</h4>${i.en&&i.en!==i.n?`<div class="mu">EN: ${esc(i.en)}</div>`:""}${bind?`<div class="ln">${bind}${isAH(i)?' <span class="tag" style="color:var(--gold2);border-color:#5b4a1f">subasta</span>':""}${craftable(i)?' <span class="tag" style="color:var(--q2);border-color:#2f6f2f">puedes fabricarlo</span>':""}</div>`:""}
+   <div class="ln" style="display:flex;justify-content:space-between"><span>${esc(SLOT_ES[i.s]||i.s)}</span><span class="${usable?"":"red"}">${TL[key(i)]||esc(i.t)}</span></div>
+   ${i.dmg?`<div class="ln" style="display:flex;justify-content:space-between"><span>${i.dmg[0]} - ${i.dmg[1]} de daño</span><span>Velocidad ${(+i.sp_).toFixed(2)}</span></div>`:""}${i.dps?`<div class="ln">(${i.dps} daño por segundo)</div>`:""}${i.a?`<div class="ln">${i.a} de armadura</div>`:""}
+   ${Object.entries(i.st).map(([k,v])=>`<div class="ln">+${v} ${SL[k]||k}</div>`).join("")}
+   ${i.e?i.e.split(" | ").map(x=>`<div class="ln eq">${esc(x)}${i.eo?' <span class="mu">(texto de Classic, puede haber cambiado)</span>':""}</div>`).join(""):""}
+   ${i.set?`<div class="ln" style="color:var(--q7)">${esc(i.set)}</div>`:""}
+   ${i.cl?`<div class="ln ${i.cl.split(/,\s*/).includes(CH.cls)?"":"red"}">Clases: ${esc(i.cl)}</div>`:""}
+   ${i.r>1?`<div class="ln ${i.r>CH.lvl?"red":""}">Requiere nivel ${i.r}</div>`:(i.er>1?`<div class="mu ${i.er>CH.lvl?"red":""}">Sin requisito de nivel · contenido de nivel ~${i.er}</div>`:"")}
+   <div class="mu">Nivel de objeto ${i.l}</div>${i.src?`<div class="mu" style="margin-top:4px">${esc(i.src)}</div>`:""}
+   ${i.x?`<div class="mu" style="color:#d9bf7a">Aún oculto en Forever: stats de Classic</div>`:i.v?`<div class="mu" style="color:#6fd06f">✓ Stats confirmadas con datos en vivo de Forever${i.nw?" · item nuevo":""}</div>`:""}`;
+  if(cmp){const d=diffStats(i,cmp);if(d)h+=`<div class="mu" style="margin-top:6px">Si cambias tu equipado:</div>${d}`;}
+  return h;
+}
+function diffStats(a,b){const ks=new Set([...Object.keys(a.st),...Object.keys(b?b.st:{})]);const out=[];
+  for(const k of ks){const d=(a.st[k]||0)-((b&&b.st[k])||0);if(d)out.push(`<div class="ln ${d>0?"up":"down"}">${d>0?"+":""}${d} ${SL[k]||k}</div>`);}return out.join("");}
+function showTip(html,e){tip.innerHTML=html;tip.hidden=false;moveTip(e);}
+function moveTip(e){const w=tip.offsetWidth,h=tip.offsetHeight;let x=e.clientX+16,y=e.clientY+14;if(x+w>innerWidth-8)x=e.clientX-w-16;if(y+h>innerHeight-8)y=Math.max(8,innerHeight-h-8);tip.style.left=x+"px";tip.style.top=y+"px";}
+function hideTip(){tip.hidden=true;}
+const isTouch=matchMedia("(hover: none)").matches;
+
+/* ===================== BUSCADOR ===================== */
+let shown=PAGE,lastRes=[];
+const S={types:new Set(),stats:new Set(),mode:"all",slot:"",q:0,lvlMin:"",lvlMax:"",src:new Set(),hideEst:false,myLvl:false,myClass:false,ahOnly:false,name:"",sort:"l",dir:-1};
+function chips(el,list,set,prefix=""){ $(el).innerHTML=list.map(x=>`<button class="chip" data-v="${prefix}${x[0]}">${x[1]}</button>`).join("");
+  $(el).onclick=e=>{const b=e.target.closest(".chip");if(!b)return;toggle(S[set],b.dataset.v);shown=PAGE;render();};}
+function buildSearch(){
+  chips("armorChips",ARMOR_T,"types","A:"); chips("weapChips",WEAP_T,"types","W:");
+  chips("statChips",STATS,"stats"); chips("statChips2",STATS2,"stats"); chips("srcChips",SRC,"src");
+  const slots=[...new Set(ITEMS.map(i=>i.s))].sort((a,b)=>(SLOT_ES[a]||a).localeCompare(SLOT_ES[b]||b));
+  $("slotSel").innerHTML=`<option value="">Todas</option>`+slots.map(s=>`<option value="${esc(s)}">${esc(SLOT_ES[s]||s)}</option>`).join("");
+  $("modeSeg").onclick=e=>{const b=e.target.closest("button");if(!b)return;S.mode=b.dataset.m;shown=PAGE;render();};
+  const on=(id,ev,k,f=v=>v)=>$(id).addEventListener(ev,e=>{S[k]=f(e.target.type==="checkbox"?e.target.checked:e.target.value);shown=PAGE;render();});
+  on("slotSel","change","slot");on("qualSel","change","q",Number);on("lvlMin","input","lvlMin");on("lvlMax","input","lvlMax");on("nameInput","input","name");
+  on("hideEst","change","hideEst");on("ahOnly","change","ahOnly");on("myLvl","change","myLvl");on("myClass","change","myClass");
+  $("resetBtn").onclick=()=>{Object.assign(S,{types:new Set(),stats:new Set(),mode:"all",slot:"",q:0,lvlMin:"",lvlMax:"",src:new Set(),hideEst:false,myLvl:false,myClass:false,ahOnly:false,name:"",sort:"l",dir:-1});$("cmdInput").value="";$("nameInput").value="";$("parseNote").textContent="";shown=PAGE;render();};
+  $("cmdBtn").onclick=runCommand;$("cmdInput").onkeydown=e=>{if(e.key==="Enter")runCommand();};
+  $("moreBtn").onclick=()=>{shown+=PAGE;render(true);};$("copyBtn").onclick=copyRes;
+  $("tbody").addEventListener("click",e=>{const tr=e.target.closest("tr");if(tr)detail(lastRes[+tr.dataset.ix]);});
+  $("tbody").addEventListener("mouseover",e=>{if(isTouch)return;const tr=e.target.closest("tr");if(tr){const i=lastRes[+tr.dataset.ix];const sl=slotsFor(i)[0];showTip(itemTip(i,sl?BYID.get(CH.gear[sl]):null),e);}});
+  $("tbody").addEventListener("mousemove",e=>{if(!tip.hidden)moveTip(e);});
+  $("tbody").addEventListener("mouseleave",hideTip);
+}
+function syncSearch(){
+  document.querySelectorAll("#armorChips .chip,#weapChips .chip").forEach(b=>b.classList.toggle("on",S.types.has(b.dataset.v)));
+  document.querySelectorAll("#statChips .chip,#statChips2 .chip").forEach(b=>b.classList.toggle("on",S.stats.has(b.dataset.v)));
+  document.querySelectorAll("#srcChips .chip").forEach(b=>b.classList.toggle("on",S.src.has(b.dataset.v)));
+  document.querySelectorAll("#modeSeg button").forEach(b=>b.classList.toggle("on",b.dataset.m===S.mode));
+  $("slotSel").value=S.slot;$("qualSel").value=String(S.q);$("lvlMin").value=S.lvlMin;$("lvlMax").value=S.lvlMax;
+  $("hideEst").checked=S.hideEst;$("ahOnly").checked=S.ahOnly;$("myLvl").checked=S.myLvl;$("myClass").checked=S.myClass;$("myLvlN").textContent=CH.lvl;
+  if(STATS2.some(s=>S.stats.has(s[0])))$("moreStats").open=true;
+}
+function filterSearch(){
+  const want=[...S.stats],lmin=S.lvlMin===""?-1:+S.lvlMin,lmax=S.lvlMax===""?999:+S.lvlMax,nm=norm(S.name),srcs=[...S.src];
+  const r=ITEMS.filter(i=>{
+    if(S.types.size&&!S.types.has(key(i)))return false;
+    if(S.slot&&i.s!==S.slot)return false;
+    if(i.q<S.q)return false;
+    if(i.r<lmin||i.r>lmax)return false;
+    if(S.myLvl&&i.er>CH.lvl)return false;
+    if(S.hideEst&&i.x)return false;
+    if(S.ahOnly&&!obtainable(i))return false;
+    if(S.myClass&&!canUse(i))return false;
+    if(srcs.length&&!srcs.some(s=>(i.so||"").includes(s)))return false;
+    if(want.length){const h=want.map(k=>sv(i,k)>0);if(S.mode==="all"?!h.every(Boolean):!h.some(Boolean))return false;}
+    if(nm&&!i._n.includes(nm))return false;
+    return true;});
+  const k=(S.sort==="sum"&&!want.length)?"l":S.sort,d=S.dir;
+  const v=i=>k==="sum"?want.reduce((a,s)=>a+sv(i,s),0):k==="r"?i.r:k==="l"?i.l:k==="n"?norm(i.n):sv(i,k);
+  r.sort((a,b)=>{const x=v(a),y=v(b);return (x<y?-1:x>y?1:0)*d||b.l-a.l;});
+  return r;
+}
+function statLine(i,hl){return Object.entries(i.st).map(([k,v])=>`<span class="${hl&&hl.has(k)?"hit":""}">+${v} ${SL[k]||k}</span>`).join("");}
+function render(more){
+  if(!ITEMS.length)return; syncSearch(); const r=filterSearch(); lastRes=r; const want=[...S.stats];
+  const cols=[["n","Item"],["t","Tipo"],["s","Ranura"],["r","Nivel"],["l","ilvl"],...want.map(k=>[k,SL[k]]),["st","Estadísticas"]];
+  $("thead").innerHTML=cols.map(c=>`<th data-k="${c[0]}">${c[1]}${S.sort===c[0]?(S.dir<0?" ▾":" ▴"):""}</th>`).join("");
+  $("thead").onclick=e=>{const th=e.target.closest("th");if(!th)return;const k=th.dataset.k;if(k==="t"||k==="s"||k==="st")return;if(S.sort===k)S.dir*=-1;else{S.sort=k;S.dir=k==="n"?1:-1;}render();};
+  $("tbody").innerHTML=r.slice(0,shown).map((i,ix)=>`<tr data-ix="${ix}">
+    <td class="nm q${i.q}"><div class="nmw">${ico(i.ic,30,i.q,i.icx)}<span>${esc(i.n)}${i.x?` <span class="tag warn">Classic</span>`:""}</span></div></td>
+    <td><span class="tag">${TL[key(i)]||esc(i.t)}</span></td><td>${esc(SLOT_ES[i.s]||i.s)}</td>
+    <td class="num" style="${i.er>CH.lvl?"color:#ff7070":""}">${i.r||`<span style="color:#888" title="sin requisito">~${i.er}</span>`}</td><td class="num">${i.l}</td>
+    ${want.map(k=>`<td class="num">${sv(i,k)?(k==="dps"||k==="arm"?"":"+")+sv(i,k):"<span style='color:#555'>—</span>"}</td>`).join("")}
+    <td class="stats">${statLine(i,S.stats)}${i.a?`<span>${i.a} armadura</span>`:""}${i.dps?`<span>${i.dps} DPS</span>`:""}</td></tr>`).join("");
+  $("loading").hidden=true;$("tbl").hidden=!r.length;$("empty").hidden=!!r.length;$("more").hidden=r.length<=shown;
+  $("moreBtn").textContent=`Mostrar más (${Math.min(shown,r.length)} de ${r.length})`;
+  const tt=S.types.size?[...S.types].map(t=>TL[t]).join(" + "):"todos los tipos";
+  const sx=want.length?(S.mode==="all"?" · con ":" · con alguna de: ")+want.map(k=>SL[k]).join(", "):"";
+  $("summaryText").innerHTML=`<b>${r.length.toLocaleString(EN?"en":"es")}</b> items · ${tt}${sx}${S.myLvl?" · hasta nivel "+CH.lvl:""}`;
+  if(!more)$("tablewrap").scrollTop=0;
+}
+function detail(i){
+  if(!i)return;const d=$("detail");const sl=slotsFor(i);
+  d.innerHTML=`<button class="x" onclick="this.parentNode.hidden=true">×</button>
+   <div style="display:flex;gap:10px;align-items:flex-start">${ico(i.ic,48,i.q,i.icx)}<div style="flex:1;min-width:0">${itemTip(i)}</div></div>
+   <div class="row" style="margin-top:10px;flex-wrap:wrap">
+    ${sl.length?sl.filter((s,ix)=>ix===0||PDK[s][2].join()!==PDK[sl[0]][2].join()||true).map(s=>`<button class="btn sm" data-eq="${s}">Equipar en ${PDK[s][1]}</button>`).join(""):`<span class="note">No se puede equipar en ninguna casilla con tu clase.</span>`}
+    <button class="btn ghost sm" data-cp="${esc(i.n)}">Copiar nombre (subasta)</button>${i.en&&i.en!==i.n?`<button class="btn ghost sm" data-cp="${esc(i.en)}">Copiar en inglés</button>`:""}
+    <a class="btn ghost sm" style="text-decoration:none;text-align:center" href="https://www.wowhead.com/forever/${WH}item=${i.i}" target="_blank" rel="noopener">Wowhead ↗</a></div>`;
+  d.querySelectorAll("[data-cp]").forEach(b=>b.onclick=async()=>{const o=b.textContent;try{await navigator.clipboard.writeText(b.dataset.cp);b.textContent="✓ "+b.dataset.cp;}catch{b.textContent=b.dataset.cp;}setTimeout(()=>b.textContent=o,2500);});
+  d.querySelectorAll("[data-eq]").forEach(b=>b.onclick=()=>{equip(b.dataset.eq,i.i);b.textContent="✓ Equipado";});
+  d.hidden=false;
+}
+function runCommand(){
+  const t=" "+norm($("cmdInput").value).replace(/[,.;:!?()]/g," ")+" ";if(!t.trim())return;
+  const has=w=>t.includes(" "+norm(w)+" ");const types=new Set(),stats=new Set();let slot="";
+  for(const[w,a]of Object.entries(ARMOR_AL))if(has(w))types.add("A:"+a);
+  for(const[w,a]of Object.entries(WEAP_AL))if(has(w))types.add("W:"+a);
+  if(has("espada")||has("espadas")||has("sword")||has("swords"))["One-Handed Sword","Two-Handed Sword"].forEach(x=>types.add("W:"+x));
+  if(has("maza")||has("mazas")||has("mace")||has("maces"))["One-Handed Mace","Two-Handed Mace"].forEach(x=>types.add("W:"+x));
+  if(has("hacha")||has("hachas")||has("axe")||has("axes"))["One-Handed Axe","Two-Handed Axe"].forEach(x=>types.add("W:"+x));
+  for(const s of ALLST)for(const al of s[2])if(has(al)){stats.add(s[0]);break;}
+  for(const[w,s]of Object.entries(SLOT_AL))if(has(w)){slot=s;break;}
+  S.types=types;S.stats=stats;S.slot=slot;S.mode=/ (alguna|cualquiera|al menos una|any) /.test(t)?"any":"all";
+  const lv=t.match(/(?:nivel|level|lvl)\s*(\d+)(?:\s*(?:a|-|al|hasta|y|to)\s*(\d+))?/);
+  if(lv){S.lvlMin=lv[1];S.lvlMax=lv[2]||lv[1];}else{S.lvlMin="";S.lvlMax="";}
+  S.myLvl=/ (mi nivel|puedo usar|my level) /.test(t)||S.myLvl;S.myClass=/ (mi clase|my class) /.test(t)||S.myClass;
+  S.q=has("epico")||has("epicos")||has("morado")||has("epic")?4:has("raro")||has("raros")||has("azul")||has("rare")?3:has("verde")||has("uncommon")||has("green")?2:has("legendario")||has("legendary")?5:0;
+  S.sort=stats.size?"sum":"l";S.dir=-1;
+  const p=[];if(types.size)p.push("tipo: "+[...types].map(x=>TL[x]).join(", "));
+  if(stats.size)p.push("stats: "+[...stats].map(k=>SL[k]).join(", ")+(S.mode==="all"?" (todas)":" (al menos una)"));
+  if(slot)p.push("ranura: "+SLOT_ES[slot]);if(lv)p.push("nivel "+S.lvlMin+(S.lvlMax!==S.lvlMin?"–"+S.lvlMax:""));if(S.q)p.push("calidad ≥ "+QN[S.q]);
+  $("parseNote").textContent=p.length?"Entendí → "+p.join(" · "):"No reconocí tipos ni estadísticas; usa los filtros de la izquierda.";
+  shown=PAGE;render();
+}
+async function copyRes(){
+  const txt=lastRes.slice(0,500).map(i=>`${i.n} [${TL[key(i)]||i.t}, ${SLOT_ES[i.s]||i.s}, niv ${i.r}] `+Object.entries(i.st).map(([k,v])=>`+${v} ${SL[k]||k}`).join(", ")+` — https://www.wowhead.com/forever/${WH}item=${i.i}`).join("\n");
+  const b=$("copyBtn"),o=b.textContent;try{await navigator.clipboard.writeText(txt||"(sin resultados)");b.textContent=lastRes.length>500?"Copiados los 500 primeros":"¡Copiado!";}catch{b.textContent="No se pudo copiar";}setTimeout(()=>b.textContent=o,1600);
+}
+
+/* ===================== EQUIPO ===================== */
+function equip(slot,id){
+  const i=BYID.get(id); if(!i) return;
+  if(slot==="main"&&i.s==="Two-Hand") delete CH.gear.off;
+  if(slot==="off"){const m=BYID.get(CH.gear.main); if(m&&m.s==="Two-Hand") delete CH.gear.main;}
+  CH.gear[slot]=id; saveCH(); renderGear();
+}
+const LOCK_ON='<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2" fill="currentColor"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="15.5" r="1.6" fill="#14171d"/></svg>';
+const LOCK_OFF='<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10.5V8a4 4 0 0 1 7.6-1.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+function slotHTML(p){
+  const i=BYID.get(CH.gear[p[0]]);const m=BYID.get(CH.gear.main);
+  const off=p[0]==="off"&&m&&m.s==="Two-Hand";
+  const bad=i&&(!canUse(i)||i.r>CH.lvl);
+  const lk=!!(i&&CH.locked&&CH.locked[p[0]]);
+  return `<div class="slot${off?" off":""}${lk?" locked":""}" data-slot="${p[0]}">${i?ico(i.ic,42,i.q,i.icx):`<div class="em">+</div>`}
+   <div class="t"><div class="a">${p[1]}${bad?' <span style="color:#ff6060">· no usable</span>':""}</div><div class="b ${i?"q"+i.q:""}">${i?esc(i.n):(off?"Ocupada por arma a dos manos":'<span style="color:#666">Vacío</span>')}</div></div>
+   ${i?`<button class="lockbtn${lk?" on":""}" data-lock="${p[0]}" title="${lk?"Pieza fijada: «Armar mi equipo» no la cambia":"Fijar esta pieza"}">${lk?LOCK_ON:LOCK_OFF}</button>`:""}</div>`;
+}
+function renderGear(){
+  $("colL").innerHTML=PD.filter(p=>p[3]==="L").map(slotHTML).join("");
+  $("colR").innerHTML=PD.filter(p=>p[3]==="R").map(slotHTML).join("");
+  $("colB").innerHTML=PD.filter(p=>p[3]==="B").map(slotHTML).join("");
+  renderTotals();
+}
+function gearTotals(){const t={},sets={};let armor=0,dps=[];
+  for(const[sl,id]of Object.entries(CH.gear)){const i=BYID.get(id);if(!i)continue;
+    for(const[k,v]of Object.entries(i.st))t[k]=(t[k]||0)+v; armor+=i.a||0; if(i.set)sets[i.set]=(sets[i.set]||0)+1;}
+  return {t,armor,sets};}
+function renderTotals(){
+  if(!CD.classes[CH.cls])return;const S=computeStats();const A=S.A;
+  const N=(v,d=2)=>{const s=(+v).toFixed(d);return EN?s:s.replace(".",",");};
+  const tip=parts=>esc(Object.entries(parts).filter(([,v])=>v).map(([k,v])=>`${({base:EN?"class base":"base de clase",agi:EN?"agility":"agilidad",int:EN?"intellect":"intelecto",rating:EN?"rating":"índice",racial:EN?"racial":"racial",def:EN?"defense":"defensa",tal:EN?"talents":"talentos"})[k]} ${N(v)} %`).join(" + "));
+  const row=(n,v,title,tal)=>`<div class="sr"><span>${n}</span><span class="v">${v}${tal?` <span class="g" style="color:var(--gold2)">(${tal} tal.)</span>`:""}</span></div>`;
+  $("stPrim").innerHTML=[["str","Fuerza"],["agi","Agilidad"],["sta","Aguante"],["int","Intelecto"],["spi","Espíritu"]].map(([k,n])=>{const a=A[k];
+    return `<div class="sr"><span>${n}</span><span><span class="v">${a.total}</span>${a.gear?`<span class="g">(+${a.gear})</span>`:""}${a.racial?`<span class="g" style="color:#9fd6ff">(+${a.racial} racial)</span>`:""}${a.tal?`<span class="g" style="color:var(--gold2)">(+${a.tal} tal.)</span>`:""}</span></div>`;}).join("");
+  const est=S.lvl<60?(EN?" (est.)":" (est.)"):"";
+  const rows=[row("Vida",S.hp.toLocaleString(EN?"en":"es")),S.mana?row("Maná",S.mana.toLocaleString(EN?"en":"es")):"",
+    row("Armadura",S.armor.toLocaleString(EN?"en":"es"),esc(`${EN?"items":"objetos"} ${S.armorItems} + ${EN?"agility":"agilidad"} ×2 = ${A.agi.total*2}${S.t.barm?` + ${S.t.barm}`:""}`)),
+    row("Poder de ataque",S.ap,esc(`base ${S.apBase} + ${EN?"strength":"fuerza"} ${S.apStr}${S.apAgi?` + ${EN?"agility":"agilidad"} ${S.apAgi}`:""}${S.t.ap?` + ${EN?"gear":"equipo"} ${S.t.ap}`:""}`),S.apTal?"+"+S.apTal:""),
+    S.rap!==undefined?row("P. ataque a distancia",S.rap):"",
+    row("Crítico físico",N(S.mcrit)+" %"+est,tip(S.mcritParts),S.M.mcrit?"+"+N(S.M.mcrit)+" %":""),
+    S.scrit!==undefined?row("Crítico hechizos",N(S.scrit)+" %"+est,tip(S.scritParts),S.M.scrit?"+"+N(S.M.scrit)+" %":""):"",
+    row("Golpe",N(S.hit)+" %"+est,"",S.M.hit?"+"+N(S.M.hit)+" %":""),S.M.shit?row("Golpe con hechizos",N(S.shit)+" %"):"",
+    S.dmg?row("Daño con hechizos",S.dmg,"",S.sdT?"+"+S.sdT:""):"",S.heal?row("Sanación",S.heal,"",S.healT?"+"+S.healT:""):"",
+    S.haste?row("Celeridad",N(S.haste)+" %"+est):"",S.exp?row("Pericia",N(S.exp)+" %"+est):""].join("");
+  $("stCombat").innerHTML=rows;
+  const drows=[row("Defensa",S.defense,esc(`${S.lvl}×5${S.defense-S.lvl*5?` + ${S.defense-S.lvl*5}`:""}`),S.M.def?"+"+S.M.def:""),
+    row("Esquivar",N(S.dodge)+" %",tip(S.dodgeParts)+esc(` — ${N(S.dodgePerAgi,4)} % ${EN?"per agility":"por agilidad"} (${N(1/S.dodgePerAgi,1)} ${EN?"agi per 1%":"agi = 1 %"})`),S.M.dodge?"+"+N(S.M.dodge)+" %":""),
+    S.canParry?row("Parada",N(S.parry)+" %",tip(S.parryParts),S.M.parry?"+"+N(S.M.parry)+" %":""):"",
+    S.canBlock?row("Bloqueo",N(S.block)+" %",tip(S.blockParts),S.M.block?"+"+N(S.M.block)+" %":""):"",
+    S.canBlock?row("Valor de bloqueo",S.blockValue,esc(`${EN?"strength":"fuerza"}/20 − 1${S.t.bv?` + ${S.t.bv}`:""}`)):"",
+    S.mana?row("Maná/5 s (sin lanzar)",Math.round(S.regenOut),esc(`5 × (6,25 + ${EN?"spirit":"espíritu"} ${A.spi.total}/8)${S.t.mp5?` + mp5 ${S.t.mp5}`:""}`)):"",
+    S.mana?row("Maná/5 s (lanzando)",Math.round(S.regenCast),esc(`${S.M.castRegen} % ${EN?"of spirit regen":"de la regen. por espíritu"}${S.t.mp5?` + mp5 ${S.t.mp5}`:""}`),S.M.castRegen?"+"+S.M.castRegen+" %":""):""].join("");
+  $("stDef").innerHTML=drows;
+  const t=S.t;const other=Object.entries(t).filter(([k])=>!["str","agi","sta","int","spi"].includes(k));
+  $("stOther").innerHTML=other.length?`<div style="columns:2 180px">${other.map(([k,v])=>`<div class="sr" style="break-inside:avoid"><span>${SL[k]||k}</span><span class="v up">+${v}</span></div>`).join("")}</div>`:`<div class="note">Ponte items para ver sus estadísticas aquí.</div>`;
+  const {fxText}=statCtx();const M=S.M;const se=Object.entries(S.sets);
+  $("stSets").innerHTML=(se.length?se.map(([n,c])=>`<div><span style="color:var(--q7)">${esc(n)}</span> — ${c} pieza${c>1?"s":""}</div>`).join(""):"Ningún set equipado.")+
+    `<div style="margin-top:10px"><b style="color:var(--gold)">Talentos que suman stats:</b>${M.items.length?M.items.map(it=>`<div class="talfx"><div><span style="color:var(--gold2);font-weight:600">${esc(it.name)}</span></div><div class="note">${esc(it.desc)}</div><div class="up" style="font-weight:600">→ ${esc(it.fx.map(f=>fxText(f,true)).join(" · "))}</div></div>`).join(""):' <span class="note">ninguno (ve a la pestaña Talentos)</span>'}</div>`;
+}
+/* picker */
+let pkSlot=null;
+function openPicker(slot){
+  pkSlot=slot;const p=PDK[slot];$("pkAH").checked=false;$("pkTitle").textContent="Elegir: "+p[1];$("pkSearch").value="";
+  $("pkRemove").hidden=!CH.gear[slot];
+  const hasP=(CH.auto&&CH.auto.prio&&CH.auto.prio.length);
+  $("pkSort").innerHTML=[...(hasP?[["prio","Mis stats"]]:[]),["auto","Mejor para mi clase"],["l","Nivel de objeto"],["r","Nivel requerido"],...ALLST.map(s=>[s[0],s[1]])].map(o=>`<option value="${o[0]}">Ordenar: ${o[1]}</option>`).join("");
+  renderPicker();$("picker").showModal();$("pkSearch").focus();
+}
+const PRIO={Warrior:["str","sta","agi","crit","hit"],Paladin:["str","int","sta","sp","heal"],Hunter:["agi","sta","int","ap","crit","hit"],Rogue:["agi","str","sta","ap","crit","hit"],Priest:["int","spi","sta","sp","heal","mp5"],Shaman:["int","agi","str","sta","sp","heal","mp5"],Mage:["int","sta","sp","sd","crit","hit"],Warlock:["int","sta","sp","sd","crit","hit"],Druid:["int","agi","str","sta","sp","heal"]};
+function score(i){const pr=PRIO[CH.cls]||[];return pr.reduce((a,k,ix)=>a+(i.st[k]||0)*(1.2-ix*0.12),0)+i.l*0.05;}
+function renderPicker(){
+  const nm=norm($("pkSearch").value),lv=$("pkLvl").checked,cl=$("pkCls").checked,q=+$("pkQ").value,so=$("pkSort").value;
+  const ahOnly=$("pkAH").checked;
+  let r=ITEMS.filter(i=>fitsSlot(i,pkSlot)&&i.q>=q&&(!ahOnly||obtainable(i))&&(!lv||i.er<=CH.lvl)&&(!cl||canUse(i))&&(!nm||i._n.includes(nm)));
+  const v=so==="prio"?pRank:so==="auto"?score:so==="l"?(i=>i.l):so==="r"?(i=>i.r):(i=>sv(i,so));
+  if(so==="prio"){const a=CH.auto;const lo=+a.min||1,hi=+a.max||CH.lvl;r=r.filter(i=>i.er>=lo&&i.er<=hi&&armorOk(i,a.armor)&&(!a.est||!i.x));}
+  r.sort((a,b)=>v(b)-v(a)||b.l-a.l);
+  const cur=BYID.get(CH.gear[pkSlot]);
+  const curScore=cur?pScore(cur):0;
+  const hiddenAH=ahOnly?ITEMS.filter(i=>fitsSlot(i,pkSlot)&&i.q>=q&&!obtainable(i)&&(!lv||i.er<=CH.lvl)&&(!cl||canUse(i))&&(!nm||i._n.includes(nm))).length:0;
+  $("pkCount").textContent=`${r.length.toLocaleString(EN?"en":"es")} items${r.length>300?" (mostrando 300)":""}${hiddenAH?` · ${hiddenAH} ocultos por «Solo de subasta» (se ligan al recogerlos)`:""}`;
+  let rk=0;
+  $("pkList").innerHTML=(so==="prio"?`<div class="note" style="padding:8px 10px;border-bottom:1px solid var(--line)">Ordenado por tus stats (${CH.auto.prio.map(k=>SL[k]).join(" + ")}): primero los que las tienen todas · nivel ${+CH.auto.min||1}–${+CH.auto.max||CH.lvl}. Las 3 primeras son tus mejores opciones.</div>`:"")+r.slice(0,300).map(i=>{
+    const isCur=cur&&cur.i===i.i; if(!isCur)rk++; const ps=pScore(i);
+    const mc=matchCount(i),nsel=selStats().length;const allT=so==="prio"?` <span class="tag" style="${mc===nsel?"color:var(--q2);border-color:#2f6f2f":""}">${mc===nsel?"✓ todas":mc+"/"+nsel}</span>`:"";
+    const badge=so==="prio"?(isCur?`<span class="tag">equipado</span>${allT} `:`<span class="rank ${rk===2?"r2":rk===3?"r3":""}">#${rk}</span>${allT} `):"";
+    const d=cur?Object.keys({...i.st,...cur.st}).map(k=>[k,(i.st[k]||0)-(cur.st[k]||0)]).filter(x=>x[1]&&["str","agi","sta","int","spi","sp","ap","heal","crit","hit"].includes(x[0])).slice(0,4):[];
+    const sc=so==="prio"?`<div class="${ps>curScore?"up":ps<curScore?"down":""}" style="font-weight:600">+${Math.round(ps)}${cur&&!isCur?` (${ps>=curScore?"+":""}${Math.round(ps-curScore)})`:""}</div>`:"";
+    return `<div class="pi${so==="prio"&&!isCur&&rk<=3?" best":""}" data-id="${i.i}">${ico(i.ic,38,i.q,i.icx)}<div class="mid"><div class="nm q${i.q}">${badge}${esc(i.n)}${i.x?' <span class="tag warn">Classic</span>':""}${cur&&cur.i===i.i&&so!=="prio"?' <span class="tag">equipado</span>':""}</div>
+     <div class="meta">${TL[key(i)]||esc(i.t)} · ${esc(SLOT_ES[i.s]||i.s)} · niv ${i.r||1} · ilvl ${i.l}</div><div class="meta stats">${statLine(i,new Set(PRIO[CH.cls]))}${i.dps?`<span>${i.dps} DPS</span>`:""}</div></div>
+     <div class="delta">${sc}${d.map(([k,x])=>`<div class="${x>0?"up":"down"}">${x>0?"+":""}${x} ${SL[k]}</div>`).join("")}</div></div>`;}).join("")||`<div class="empty">No hay items para esta casilla con esos filtros.</div>`;
+}
+function buildGear(){
+  for(const id of ["colL","colR","colB"]){const el=$(id);
+    el.addEventListener("click",e=>{const lb=e.target.closest(".lockbtn");if(lb){e.stopPropagation();CH.locked=CH.locked||{};const k=lb.dataset.lock;if(CH.locked[k])delete CH.locked[k];else CH.locked[k]=true;saveCH();renderGear();return;}
+      const s=e.target.closest(".slot");if(s){hideTip();openPicker(s.dataset.slot);}});
+    el.addEventListener("mouseover",e=>{if(isTouch)return;const s=e.target.closest(".slot");const i=s&&BYID.get(CH.gear[s.dataset.slot]);if(i)showTip(itemTip(i),e);else hideTip();});
+    el.addEventListener("mousemove",e=>{if(!tip.hidden)moveTip(e);});el.addEventListener("mouseleave",hideTip);}
+  $("pkList").addEventListener("click",e=>{const p=e.target.closest(".pi");if(!p)return;equip(pkSlot,+p.dataset.id);$("picker").close();hideTip();});
+  $("pkList").addEventListener("mouseover",e=>{if(isTouch)return;const p=e.target.closest(".pi");if(p)showTip(itemTip(BYID.get(+p.dataset.id),BYID.get(CH.gear[pkSlot])),e);});
+  $("pkList").addEventListener("mousemove",e=>{if(!tip.hidden)moveTip(e);});$("pkList").addEventListener("mouseleave",hideTip);
+  ["pkSearch","pkLvl","pkCls","pkQ","pkSort","pkAH"].forEach(id=>$(id).addEventListener(id==="pkSearch"?"input":"change",renderPicker));
+  $("pkClose").onclick=()=>{$("picker").close();hideTip();};
+  $("pkRemove").onclick=()=>{delete CH.gear[pkSlot];if(CH.locked)delete CH.locked[pkSlot];saveCH();renderGear();$("picker").close();};
+  $("gearClear").onclick=()=>{const L=CH.locked||{};for(const s of Object.keys(CH.gear))if(!L[s])delete CH.gear[s];saveCH();renderGear();};
+  $("codeBtn").onclick=()=>{$("codeTxt").value=btoa(unescape(encodeURIComponent(JSON.stringify(CH))));$("codeMsg").textContent="";$("codeDlg").showModal();};
+  $("codeCopy").onclick=async()=>{try{await navigator.clipboard.writeText($("codeTxt").value);$("codeMsg").textContent="Código copiado.";}catch{$("codeTxt").select();$("codeMsg").textContent="Selecciónalo y cópialo a mano.";}};
+  $("codeLoad").onclick=()=>{try{const o=JSON.parse(decodeURIComponent(escape(atob($("codeTxt").value.trim()))));if(!o.cls||!o.gear)throw 0;Object.assign(CH,o);saveCH();syncChar();renderAll();$("codeMsg").textContent="Personaje cargado.";}catch{$("codeMsg").textContent="Ese código no es válido.";}};
+}
+
+
+
+/* ===================== ORÍGENES Y EFECTOS EN EL IDIOMA ELEGIDO ===================== */
+let SRC_EN={n:{},q:{},o:{},k:{},f:{}},SRC_L=null;
+const ZL=z=>(!EN&&SRC_L&&SRC_L.z[z])||z;
+const SRCN=(k,id)=>{const n=(!EN&&SRC_L&&SRC_L[k]&&SRC_L[k][id])||SRC_EN[k][id]||"";return !EN&&/^World drop$/i.test(n)?"Botín mundial":n;};
+const REPL={4:["Neutral","Neutral"],5:["Friendly","Amistoso"],6:["Honored","Honorable"],7:["Revered","Reverenciado"],8:["Exalted","Exaltado"]};
+function srcText(i){
+  if(!i.S)return i.src||"";
+  const L=EN?{d:"Drop",q:"Quest",v:"Vendor",o:"Object",k:"Container",c:"Crafted",r:"Reputation",p:"PvP",w:"Drop",lvl:"level",rec:"recipe"}:{d:"Botín",q:"Misión",v:"Vendedor",o:"Objeto",k:"Contenedor",c:"Fabricado",r:"Reputación",p:"JcJ",w:"Botín",lvl:"nivel",rec:"receta"};
+  return i.S.map(e=>{const k=e[0];
+    if(k==="d"){const n=SRCN("n",e[1]);const lv=e[3]?(e[3]===e[4]||!e[4]?e[3]:e[3]+"-"+e[4]):"";const parts=[lv?L.lvl+" "+lv:"",ZL(e[2]),e[5]?(e[5].toLocaleString(EN?"en":"es")+" %"):""].filter(Boolean);const wd=/^World drop$/i.test(SRC_EN.n[e[1]]||"");return `${wd?(EN?"World drop":"Botín mundial"):L.d+": "+n}${parts.length?" ("+parts.join(", ")+")":""}`;}
+    if(k==="q"){const fac=e[3]?({Alliance:EN?"Alliance":"Alianza",Horde:EN?"Horde":"Horda",Both:EN?"both factions":"ambas facciones"}[e[3]]||ZL(e[3])):"";const z=[ZL(e[2]),fac].filter(Boolean).join(", ");return `${L.q}: ${SRCN("q",e[1])}${z?" ("+z+")":""}`;}
+    if(k==="v")return `${L.v}: ${SRCN("n",e[1])}${e[2]?" ("+ZL(e[2])+")":""}`;
+    if(k==="o")return `${L.o}: ${SRCN("o",e[1])}${e[5]?" ("+e[5].toLocaleString(EN?"en":"es")+" %)":""}`;
+    if(k==="k")return `${L.k}: ${SRCN("k",e[1])}`;
+    if(k==="c")return `${L.c}${e[1]?": "+ZL(e[1])+(e[2]?" "+e[2]:""):""}${e[3]?" ("+L.rec+")":""}`;
+    if(k==="r")return `${L.r}: ${SRCN("f",e[1])}${REPL[e[2]]?" ("+REPL[e[2]][EN?0:1]+")":""}`;
+    if(k==="w")return `${L.w}: ${ZL(e[1])}${e[2]?" ("+ZL(e[2])+")":""}`;
+    if(k==="p")return L.p;return "";}).join("; ");
+}
+const SCH={Shadow:"Sombras",Fire:"Fuego",Frost:"Escarcha",Nature:"Naturaleza",Arcane:"Arcano",Holy:"Sagrado"};
+const EFF=[
+ [/^Equip: Increases damage and healing done by magical spells and effects by up to (\d+)\.$/,"Equipar: Aumenta hasta $1 p. el daño y la sanación de los hechizos y efectos mágicos."],
+ [/^Equip: Increases healing done by spells and effects by up to (\d+)\.$/,"Equipar: Aumenta hasta $1 p. la sanación de los hechizos y efectos."],
+ [/^Equip: Restores (\d+) mana per (\d+) sec\.$/,"Equipar: Restaura $1 p. de maná cada $2 s."],
+ [/^Equip: Restores (\d+) health per (\d+) sec\.$/,"Equipar: Restaura $1 p. de salud cada $2 s."],
+ [/^Equip: \+(\d+) Attack Power\.$/,"Equipar: +$1 p. de poder de ataque."],
+ [/^Equip: \+(\d+) Attack Power against (Undead|Beasts|Demons)\.$/,(m,a,b)=>`Equipar: +${a} p. de poder de ataque contra ${({Undead:"no-muertos",Beasts:"bestias",Demons:"demonios"})[b]}.`],
+ [/^Equip: \+(\d+) ranged Attack Power\.$/,"Equipar: +$1 p. de poder de ataque a distancia."],
+ [/^Equip: Improves your chance to get a critical strike with melee attacks by (\d+)%\.$/,"Equipar: Mejora un $1% tu probabilidad de asestar un golpe crítico con ataques cuerpo a cuerpo."],
+ [/^Equip: Improves your chance to get a critical strike by (\d+)%\.$/,"Equipar: Mejora un $1% tu probabilidad de asestar un golpe crítico."],
+ [/^Equip: Improves your chance to get a critical strike with spells by (\d+)%\.$/,"Equipar: Mejora un $1% tu probabilidad de conseguir un golpe crítico con hechizos."],
+ [/^Equip: Improves your chance to hit by (\d+)%\.$/,"Equipar: Mejora un $1% tu probabilidad de golpear."],
+ [/^Equip: Improves your chance to hit with spells by (\d+)%\.$/,"Equipar: Mejora un $1% tu probabilidad de golpear con hechizos."],
+ [/^Equip: Increased Defense \+(\d+)\.$/,"Equipar: Defensa aumentada +$1."],
+ [/^Equip: Increased (Daggers|Swords|Axes|Maces|Bows|Guns|Crossbows|Staves|Fist Weapons|Two-handed Swords|Two-handed Axes|Two-handed Maces|Polearms) \+(\d+)\.$/,(m,a,b)=>`Equipar: ${({Daggers:"Dagas",Swords:"Espadas",Axes:"Hachas",Maces:"Mazas",Bows:"Arcos",Guns:"Armas de fuego",Crossbows:"Ballestas",Staves:"Bastones","Fist Weapons":"Armas de puño","Two-handed Swords":"Espadas de dos manos","Two-handed Axes":"Hachas de dos manos","Two-handed Maces":"Mazas de dos manos",Polearms:"Armas de asta"})[a]} aumentado +${b}.`],
+ [/^Equip: Run speed increased slightly\.$/,"Equipar: Velocidad de carrera aumentada ligeramente."],
+ [/^Equip: Increases your chance to dodge an attack by (\d+)%\.$/,"Equipar: Aumenta un $1% tu probabilidad de esquivar un ataque."],
+ [/^Equip: Increases your chance to parry an attack by (\d+)%\.$/,"Equipar: Aumenta un $1% tu probabilidad de parar un ataque."],
+ [/^Equip: Increases your chance to block attacks with a shield by (\d+)%\.$/,"Equipar: Aumenta un $1% tu probabilidad de bloquear ataques con un escudo."],
+ [/^Equip: Increases the block value of your shield by (\d+)\.$/,"Equipar: Aumenta $1 p. el valor de bloqueo de tu escudo."],
+ [/^Equip: Increases damage done by (Shadow|Fire|Frost|Nature|Arcane|Holy) spells and effects by up to (\d+)\.$/,(m,a,b)=>`Equipar: Aumenta hasta ${b} p. el daño de los hechizos y efectos de ${SCH[a]}.`],
+ [/^Equip: Increases your effective stealth detection level by (\d+)\.$/,"Equipar: Aumenta $1 p. tu nivel efectivo de detección de sigilo."],
+ [/^Equip: Increases your effective stealth level by (\d+)\.$/,"Equipar: Aumenta $1 p. tu nivel efectivo de sigilo."],
+ [/^Equip: Increases the speed of your Ghost Wolf ability by (\d+)%\.$/,"Equipar: Aumenta un $1% la velocidad de tu habilidad Lobo fantasmal."],
+ [/^Equip: Increases the damage absorbed by your Mana Shield by (\d+)\.$/,"Equipar: Aumenta $1 p. el daño absorbido por tu Escudo de maná."],
+ [/^Chance on hit: Sends a shadowy bolt at the enemy causing (\d+) Shadow damage\.$/,"Probabilidad al golpear: Lanza una descarga de sombras al enemigo que inflige $1 p. de daño de Sombras."],
+ [/^Chance on hit: Blasts a target for (\d+) (Shadow|Fire|Frost|Nature|Arcane|Holy) damage\.$/,(m,a,b)=>`Probabilidad al golpear: Inflige ${a} p. de daño de ${SCH[b]} a un objetivo.`],
+ [/^Chance on hit: Wounds the target causing them to bleed for (\d+) damage over (\d+) sec\.$/,"Probabilidad al golpear: Hiere al objetivo y le provoca un sangrado de $1 p. de daño durante $2 s."],
+ [/^Chance on hit: Wounds the target for (\d+) damage\.$/,"Probabilidad al golpear: Hiere al objetivo e inflige $1 p. de daño."],
+ [/^Chance on hit: Poisons target for (\d+) Nature damage every (\d+) sec for (\d+) sec\.$/,"Probabilidad al golpear: Envenena al objetivo e inflige $1 p. de daño de Naturaleza cada $2 s durante $3 s."],
+ [/^Chance on hit: Hurls a fiery ball that causes (\d+) Fire damage and an additional (\d+) damage over (\d+) sec\.$/,"Probabilidad al golpear: Arroja una bola ígnea que inflige $1 p. de daño de Fuego y $2 p. adicionales durante $3 s."],
+ [/^Chance on hit: Stuns target for (\d+) sec\.$/,"Probabilidad al golpear: Aturde al objetivo durante $1 s."],
+ [/^Chance on hit: Steals (\d+) life from target enemy\.$/,"Probabilidad al golpear: Roba $1 p. de vida al enemigo."],
+ [/^Use: Restores (\d+) mana\.$/,"Uso: Restaura $1 p. de maná."],
+ [/^Use: Absorbs (\d+) physical damage\. Lasts (\d+) sec\.$/,"Uso: Absorbe $1 p. de daño físico. Dura $2 s."],
+ [/^Use: Dispels all Immobilizing, Slowing and Stun effects\.$/,"Uso: Disipa todos los efectos de inmovilización, ralentización y aturdimiento."],
+ [/^Use: Dispels all Charm, Fear and Polymorph effects\.$/,"Uso: Disipa todos los efectos de embelesamiento, miedo y polimorfia."],
+ [/^Use: Learn Relic$/,"Uso: Aprender reliquia"],
+ [/^Equip: /,"Equipar: "],[/^Use: /,"Uso: "],[/^Chance on hit: /,"Probabilidad al golpear: "],[/^Efecto: /,"Efecto: "]];
+function effText(line){if(EN)return line.replace(/^Efecto: /,"Effect: ");for(const[re,to]of EFF){if(re.test(line))return line.replace(re,to);}return line;}
+
+let TES={};
+const tName=(t,cls=CH.cls)=>(!EN&&TES[cls+"|"+t.name])?TES[cls+"|"+t.name][0]:t.name;
+function tDesc(t,d,cls=CH.cls){const tr=!EN&&TES[cls+"|"+t.name];if(!tr||!d)return d||"";const nums=d.match(/\d+(?:\.\d+)?/g)||[];return tr[1].replace(/\{(\d+)\}/g,(m,i)=>nums[+i]!==undefined?nums[+i].replace(".",","):"?");}
+/* ===================== BONOS DE TALENTOS ===================== */
+function talentFx(d){const fx=[];let x;const S={Stamina:"sta",Intellect:"int",Strength:"str",Agility:"agi",Spirit:"spi"};
+  const add=(k,v,s)=>fx.push([k,s||null,v]);
+  if((x=d.match(/^Increases your (?:total )?(Stamina|Intellect|Strength|Agility|Spirit) by (\d+)%/)))add("pct",+x[2],S[x[1]]);
+  if((x=d.match(/Increases your armor value from items by (\d+)%/)))add("armorItems",+x[1]);
+  if((x=d.match(/^Increases your Parry chance by (\d+)%/)))add("parry",+x[1]);
+  if((x=d.match(/^Increases your (?:chance to dodge|dodge chance|Dodge chance) by (?:an additional )?(\d+)%/i)))add("dodge",+x[1]);
+  if((x=d.match(/^Increases your critical strike chance with all attacks(?: and Poisons)? by (\d+)%/)))add("mcrit",+x[1]);
+  if((x=d.match(/^Increases your critical strike chance with spells and melee attacks by (\d+)%/))||(x=d.match(/^Improves your chance to get a critical strike with all spells and attacks by (\d+)%/))){add("mcrit",+x[1]);add("scrit",+x[1]);}
+  if((x=d.match(/^Improves your chance to get a critical strike with melee attacks by (\d+)%/)))add("mcrit",+x[1]);
+  if((x=d.match(/^Increases the damage done by your spells by \d+% and your critical strike chance by (\d+)%/)))add("scrit",+x[1]);
+  if((x=d.match(/^(?:Improves|Increases) your (?:chance to hit|hit chance) by (\d+)%/i)))add("hit",+x[1]);
+  else if((x=d.match(/improves your chance to hit by (\d+)%/)))add("hit",+x[1]);
+  if((x=d.match(/^Improves your chance to hit with all spells by (\d+)%/)))add("shit",+x[1]);
+  if((x=d.match(/increases your maximum health by (\d+)%/i))||(x=d.match(/^Increases your total Health by (\d+)%/)))add("hp",+x[1]);
+  if((x=d.match(/increases your maximum Mana by (\d+)%/)))add("mana",+x[1]);
+  if((x=d.match(/Increases your spell damage and healing by up to (\d+)% of your Intellect/)))add("spInt",+x[1]);
+  if((x=d.match(/Increases your spell healing by up to (\d+)% of your total Spirit and your spell damage by up to (\d+)% of your total Spirit/))){add("healSpi",+x[1]);add("sdSpi",+x[2]);}
+  if((x=d.match(/increases your spell healing by (\d+)% of your Intellect/)))add("healInt",+x[1]);
+  if((x=d.match(/^Increases your spell damage by up to (\d+)% of your Intellect/)))add("sdInt",+x[1]);
+  if((x=d.match(/Increases your Armor by an amount equal to (\d+)% of your Intellect/)))add("armInt",+x[1]);
+  if((x=d.match(/Increases your Attack Power by (?:an amount equal to )?(\d+)% of your Intellect/)))add("apInt",+x[1]);
+  if((x=d.match(/^Increases your chance to Block attacks with your shield by (\d+)%/)))add("block",+x[1]);
+  if((x=d.match(/^Increases your Defense Skill by (\d+)/)))add("def",+x[1]);
+  if((x=d.match(/Allows (\d+)% of your Mana regeneration to continue while casting/)))add("castRegen",+x[1]);
+  if(/^Gives a chance to parry enemy melee attacks/.test(d))add("canParry",1);
+  return fx;}
+function talentMods(){
+  const m={pct:{},armorItems:0,parry:0,dodge:0,mcrit:0,scrit:0,hit:0,shit:0,block:0,hp:0,mana:0,spInt:0,healInt:0,sdInt:0,healSpi:0,sdSpi:0,armInt:0,apInt:0,def:0,castRegen:0,canParry:0,list:[],eff:[],items:[]};
+  const C=TAL&&TAL.classes[CH.cls];if(!C)return m;const st=(CH.tal||{})[CH.cls]||{};
+  C.trees.forEach((tr,ti)=>tr.talents.forEach(t=>{const c=st[ti+"|"+t.name]||0;if(!c)return;const d=t.desc[c-1]||"";const fx=talentFx(d);
+    for(const[k,s,v]of fx){if(k==="pct")m.pct[s]=(m.pct[s]||0)+v;else m[k]+=v;}
+    if(fx.length){const nm=tName(t)+" "+c+"/"+t.max;m.list.push(nm);m.eff.push([nm,tDesc(t,d)]);m.items.push({name:nm,desc:tDesc(t,d),fx});}
+  }));
+  return m;
+}
+/* Contexto de stats actual (base+equipo+talentos) y texto de lo que aporta cada efecto */
+function statCtx(){
+  const S0=computeStats();const M=S0.M;
+  const fmt=v=>EN?String(v):String(v).replace(".",",");
+  const LBL=EN?{str:"Strength",agi:"Agility",sta:"Stamina",int:"Intellect",spi:"Spirit",hp:"health",mana:"mana",armor:"armor",mcrit:"melee crit",scrit:"spell crit",hit:"hit",shit:"spell hit",dodge:"dodge",parry:"parry",block:"block",def:"defense",dmg:"spell damage",heal:"healing",dh:"spell damage and healing",ap:"attack power",rap:"ranged AP",regen:"mana per 5 s",cast:"of mana regen while casting"}:
+    {str:"fuerza",agi:"agilidad",sta:"aguante",int:"intelecto",spi:"espíritu",hp:"vida",mana:"maná",armor:"armadura",mcrit:"crítico físico",scrit:"crítico con hechizos",hit:"golpe",shit:"golpe con hechizos",dodge:"esquivar",parry:"parada",block:"bloqueo",def:"defensa",dmg:"daño con hechizos",heal:"sanación",dh:"daño y sanación con hechizos",ap:"poder de ataque",rap:"P. ataque a distancia",regen:"maná cada 5 s",cast:"de la regeneración de maná mientras lanzas"};
+  // applied=true: el efecto ya está en tus stats (se calcula quitándolo); false: se calcula añadiéndolo
+  const fxText=([k,s,v],applied)=>{
+    if(k==="pct"){const cv=applied===true?v:(+applied||0);const without=computeStats(cv?{[s]:-cv}:{}),with_=(v===cv)?S0:computeStats({[s]:v-cv});
+      const g=with_.A[s].total-without.A[s].total;const ex=[];
+      const dd=(key,lbl,dec)=>{const x=(with_[key]||0)-(without[key]||0);if(Math.abs(x)>=(dec?0.005:0.5))ex.push(`+${dec?fmt(x.toFixed(2))+" %":Math.round(x)} ${lbl}`);};
+      dd("hp",LBL.hp);dd("mana",LBL.mana);dd("ap",LBL.ap);dd("rap",LBL.rap);dd("mcrit",LBL.mcrit,1);dd("scrit",LBL.scrit,1);dd("dodge",LBL.dodge,1);dd("armor",LBL.armor);dd("regenOut",LBL.regen);dd("dmg",LBL.dmg);dd("heal",LBL.heal);dd("blockValue",EN?"block value":"valor de bloqueo");
+      return `+${g} ${LBL[s]}${ex.length?" ("+ex.join(", ")+")":""}`;}
+    const int=S0.A.int.total,spi=S0.A.spi.total;
+    if(k==="armorItems"){const ga=gearTotals().armor;return ga?`+${Math.round(ga*v/100)} ${LBL.armor}`:(EN?`+${v}% of gear armor (equip items to see it)`:`+${v} % de la armadura del equipo (ponte items para verlo)`);}
+    if(k==="hp"){const b=S0.hp/(1+M.hp/100);return `+${Math.round(b*v/100)} ${LBL.hp}`;}
+    if(k==="mana"){const b=S0.mana/(1+M.mana/100);return `+${Math.round(b*v/100)} ${LBL.mana}`;}
+    if(k==="spInt")return `+${Math.round(int*v/100)} ${LBL.dh}`;
+    if(k==="healInt")return `+${Math.round(int*v/100)} ${LBL.heal}`;
+    if(k==="sdInt")return `+${Math.round(int*v/100)} ${LBL.dmg}`;
+    if(k==="healSpi")return `+${Math.round(spi*v/100)} ${LBL.heal}`;
+    if(k==="sdSpi")return `+${Math.round(spi*v/100)} ${LBL.dmg}`;
+    if(k==="armInt")return `+${Math.round(int*v/100)} ${LBL.armor}`;
+    if(k==="apInt")return `+${Math.round(int*v/100)} ${LBL.ap}`;
+    if(k==="def")return `+${v} ${LBL.def} (+${fmt((v*0.04).toFixed(2))} % ${LBL.dodge}${S0.canParry?", "+LBL.parry:""}${S0.canBlock?", "+LBL.block:""})`;
+    if(k==="castRegen")return S0.mana?`${v} % ${LBL.cast} (≈ +${Math.round(S0.regenSpi*v/100)} ${LBL.regen})`:`${v} % ${LBL.cast}`;
+    if(k==="canParry")return EN?"enables parry (5% base)":"permite parar (5 % base)";
+    return `+${v} % ${LBL[k]||k}`;};
+  return {fxText,M};
+}
+/* ===================== MOTOR DE ESTADÍSTICAS (fórmulas de WoW Forever, wowsims/forever) ===================== */
+const F={
+  baseDodge:{Paladin:0.7,Priest:3,Shaman:1.7,Mage:3.2,Warlock:2,Druid:0.9},
+  basePhysCrit:{Paladin:0.7,Priest:3,Shaman:1.7,Mage:3.2,Warlock:2,Druid:0.9},
+  baseSpellCrit:{Paladin:3.5,Hunter:3.6,Priest:0.8,Shaman:2.3,Mage:0.2,Warlock:1.7,Druid:1.8},
+  apPerStr:{Warrior:2,Paladin:2,Shaman:2,Druid:2,Hunter:1,Rogue:1,Priest:1,Mage:1,Warlock:1},
+  apPerAgi:{Hunter:1,Rogue:1},
+  baseAP:(c,l)=>({Warrior:l*3-20,Paladin:l*3-20,Hunter:l*2-20,Rogue:l*2-20,Shaman:l*2-20,Druid:-20}[c]??-10),
+  canParry:new Set(["Warrior","Paladin","Rogue","Hunter"]),
+};
+function raceName(){const r=CD.races[CH.race];return r?r.name:"";}
+function computeStats(extraPct){ // extraPct: {stat:delta%} para simular un rango de talento distinto
+  const cls=CH.cls,lvl=Math.max(1,Math.min(60,CH.lvl));const L=CD.classes[cls].levels[lvl-1];const R=CD.races[CH.race]||{};const race=raceName();
+  const {t,armor:gearArmor,sets}=gearTotals();const M=talentMods();
+  const rf=lvl>=60?1:Math.max(lvl-8,2)/52; // escala de índices por nivel (curva de TBC asumida bajo 60)
+  const RT=k=>CD.rating[k]*rf;
+  const raceMul={spi:race==="Human"?1.1:1};
+  const base=k=>(L[k]||0)+(R[k]||0), pre=k=>base(k)+(t[k]||0);
+  const pctT=k=>(M.pct[k]||0)+((extraPct&&extraPct[k])||0);
+  const fin=k=>Math.floor(pre(k)*(raceMul[k]||1)*(1+pctT(k)/100));
+  const noTal=k=>Math.floor(pre(k)*(raceMul[k]||1));
+  const A={};["str","agi","sta","int","spi"].forEach(k=>A[k]={base:base(k),gear:t[k]||0,racial:Math.floor(pre(k)*(raceMul[k]||1))-pre(k),tal:fin(k)-noTal(k),total:fin(k)});
+  const str=A.str.total,agi=A.agi.total,sta=A.sta.total,int=A.int.total,spi=A.spi.total;
+  const S={A,L,lvl,rf,cls,race,t,sets,M};
+  // Vida y maná
+  S.hp=Math.round((L.hp+10*sta-180)*(race==="Tauren"?1.05:1)*(1+M.hp/100));
+  S.mana=L.mana?Math.round((L.mana+15*int-280)*(race==="Gnome"&&["Priest","Mage","Warlock"].includes(cls)?1.05:1)*(1+M.mana/100)):0;
+  // Armadura
+  S.armorItems=Math.round(gearArmor*(1+M.armorItems/100));S.armor=S.armorItems+(t.barm||0)+agi*2+Math.round(int*M.armInt/100);
+  // Poder de ataque
+  S.apBase=F.baseAP(cls,lvl);S.apStr=str*(F.apPerStr[cls]||1);S.apAgi=agi*(F.apPerAgi[cls]||0);S.apTal=Math.round(int*M.apInt/100);
+  S.ap=Math.max(0,S.apBase+S.apStr+S.apAgi+(t.ap||0)+S.apTal);
+  if(cls==="Hunter")S.rap=Math.max(0,lvl*2-10+agi*2+(t.ap||0)+(t.rap||0));
+  // Crítico
+  const critR=(t.crit||0)/RT("crit"),human=race==="Human"?1:0;
+  S.mcritParts={base:F.basePhysCrit[cls]||0,agi:agi*L.critPerAgi,rating:critR,racial:human,tal:M.mcrit};
+  S.mcrit=Object.values(S.mcritParts).reduce((a,b)=>a+b,0);
+  if(L.critPerInt||F.baseSpellCrit[cls]){S.scritParts={base:F.baseSpellCrit[cls]||0,int:int*L.critPerInt,rating:critR,racial:human,tal:M.scrit};S.scrit=Object.values(S.scritParts).reduce((a,b)=>a+b,0);}
+  // Golpe, celeridad, pericia
+  S.hit=(t.hit||0)/RT("hit")+M.hit;S.shit=S.hit+M.shit;S.haste=(t.haste||0)/RT("haste");S.exp=(t.exp||0)/RT("expertise");
+  // Defensa y evitación
+  const defPts=(t.def||0)/RT("defense")+M.def;S.defense=Math.round(lvl*5+defPts);const defAv=defPts*0.04;
+  const dpa=L.critPerAgi*(cls==="Rogue"||cls==="Hunter"?2:1);
+  S.dodgeParts={base:F.baseDodge[cls]||0,agi:agi*dpa,racial:race==="Night Elf"?1:0,rating:(t.dodge||0)/RT("dodge"),def:defAv,tal:M.dodge};
+  S.dodge=Object.values(S.dodgeParts).reduce((a,b)=>a+b,0);S.dodgePerAgi=dpa;
+  S.canParry=F.canParry.has(cls)||M.canParry>0;
+  if(S.canParry){S.parryParts={base:5,rating:(t.parry||0)/RT("parry"),def:defAv,tal:M.parry};S.parry=Object.values(S.parryParts).reduce((a,b)=>a+b,0);}
+  const off=BYID.get(CH.gear.off);S.canBlock=!!(off&&off.t==="Shield");
+  if(S.canBlock){S.blockParts={base:5,rating:(t.block||0)/RT("block"),def:defAv,tal:M.block};S.block=Object.values(S.blockParts).reduce((a,b)=>a+b,0);
+    S.blockValue=Math.floor(Math.max(0,str*0.05-1)+(t.bv||0));}
+  // Hechizos
+  const spT=Math.round(int*M.spInt/100);S.healT=Math.round(int*M.healInt/100+spi*M.healSpi/100)+spT;S.sdT=Math.round(int*M.sdInt/100+spi*M.sdSpi/100)+spT;
+  S.dmg=(t.sp||0)+(t.sd||0)+S.sdT;S.heal=(t.sp||0)+(t.heal||0)+S.healT;
+  // Regeneración de maná (por 5 s)
+  if(S.mana){S.regenSpi=5*(6.25+spi/8);S.regenOut=S.regenSpi+(t.mp5||0);S.regenCast=S.regenSpi*Math.min(M.castRegen,100)/100+(t.mp5||0);}
+  return S;
+}
+/* ===================== AUTO-EQUIPAR ===================== */
+const ARMOR_MAIN=["Cloth","Leather","Mail","Plate"];
+function autoCfg(){CH.auto=Object.assign({prio:[],min:"",max:"",armor:"any",set:"",q:0,weap:true,empty:false,est:false,ah:false,profs:{}},CH.auto||{});return CH.auto;}
+function selStats(){return autoCfg().prio;}
+function matchCount(i){return selStats().filter(k=>sv(i,k)>0).length;}
+function pScore(i){let s=0;for(const k of selStats())s+=sv(i,k)*(k==="arm"?0.1:1);return s;} // suma de tus stats elegidas
+function otherSum(i){const sel=new Set(selStats());return Object.entries(i.st).filter(([k])=>!sel.has(k)).reduce((a,[,v])=>a+v,0);}
+function pRank(i){return matchCount(i)*1e6+pScore(i)*100+otherSum(i)+i.l*0.01;} // 1º cuántas tiene, 2º cuánto suman, 3º el resto
+function armorOk(i,mode){
+  if(i.c!==0||!ARMOR_MAIN.includes(i.t)||i.s==="Back"||mode==="any")return true;
+  if(mode==="best"){ // la mejor armadura que tu clase puede llevar a tu nivel
+    const best=ARMOR_MAIN.filter(t=>{const a=CD.armor.find(x=>x[0]===CH.cls&&x[1]===t);return a&&a[2]<=CH.lvl;}).pop();return i.t===best;}
+  return i.t===mode;}
+function autoPool(){const a=autoCfg();const lo=+a.min||1,hi=Math.min(+a.max||CH.lvl,60);
+  return ITEMS.filter(i=>canUse(i)&&(!a.ah||obtainable(i))&&i.er>=lo&&i.er<=hi&&i.q>=a.q&&(!a.est||!i.x)&&armorOk(i,a.armor));}
+function availableSets(){const m={};for(const i of autoPool()){if(!i.set)continue;(m[i.set]=m[i.set]||new Set()).add(i.s);}
+  return Object.entries(m).filter(([,s])=>s.size>=2).map(([n,s])=>[n,s.size]).sort((a,b)=>a[0].localeCompare(b[0]));}
+function renderAuto(){
+  const a=autoCfg();
+  $("apChips").innerHTML=ALLST.map(s=>`<button class="chip${a.prio.includes(s[0])?" on":""}" data-k="${s[0]}">${s[1]}</button>`).join("");
+
+  $("apList").innerHTML=a.prio.length?a.prio.map((k,ix)=>`<li><span class="n">${SL[k]}</span><button data-rm="${ix}" title="Quitar">✕</button></li>`).join(""):`<li class="note" style="background:none;border-style:dashed">Toca stats a la izquierda. Los items tendrán que tener esas stats.</li>`;
+  $("apMin").value=a.min;$("apMax").value=a.max;$("apMin").placeholder="desde 1";$("apMax").placeholder="hasta "+CH.lvl;
+  {const lo=+a.min||1,hi=Math.min(+a.max||CH.lvl,60);const rr=hi-lo;
+   document.querySelectorAll("#apRange .chip").forEach(b=>b.classList.toggle("on",(b.dataset.r==="all"&&lo===1&&hi===CH.lvl)||(b.dataset.r!=="all"&&lo===Math.max(1,CH.lvl-(+b.dataset.r)+1)&&hi===CH.lvl)));
+   $("apRangeTxt").innerHTML=lo>hi?'<span style="color:#ff7070">El nivel «desde» es mayor que «hasta».</span>':(hi>CH.lvl?`<span style="color:#ff7070">Ojo: «hasta» (${hi}) es mayor que tu nivel (${CH.lvl}); no podrás usar esas piezas.</span>`:rr<3?`<span style="color:#e0b85a">Rango muy estrecho (${lo}–${hi}): habrá pocas piezas. Para lo mejor a tu nivel usa «Todo hasta mi nivel».</span>`:`Buscando items de nivel ${lo} a ${hi}.`);}
+  $("apArmor").innerHTML=[["any","Armadura: cualquiera que pueda usar"],["best","Armadura: la mejor de mi clase"],...ARMOR_MAIN.filter(t=>CD.armor.some(x=>x[0]===CH.cls&&x[1]===t&&x[2]<=CH.lvl)).map(t=>[t,"Armadura: solo "+TL["A:"+t]])].map(o=>`<option value="${o[0]}">${o[1]}</option>`).join("");
+  $("apArmor").value=a.armor; if($("apArmor").value!==a.armor){a.armor="any";$("apArmor").value="any";}
+  const sets=availableSets(); if(a.set&&!sets.some(s=>s[0]===a.set))a.set="";
+  $("apSet").innerHTML=`<option value="">Set: ignorar (cualquier pieza)</option>`+sets.map(([n,c])=>`<option value="${esc(n)}">Set: ${esc(n)} (${c} piezas)</option>`).join("");
+  $("apSet").value=a.set;$("apQ").value=String(a.q);$("apWeap").checked=a.weap;$("apEmpty").checked=a.empty;$("apEst").checked=a.est;$("apAH").checked=a.ah;$("apProfBox").hidden=!a.ah;
+  $("apProfs").innerHTML=PROFS.map(pn=>{const on=a.profs[pn]!==undefined;return `<label class="note" style="display:flex;gap:6px;align-items:center"><input type="checkbox" data-prof="${pn}"${on?" checked":""}> <span style="min-width:96px">${esc(ZL(pn))}</span>${on?`<span>${EN?"skill":"habilidad"}</span> <input type="number" data-skill="${pn}" min="1" max="300" value="${a.profs[pn]||300}" style="width:70px;padding:3px 6px">`:""}</label>`;}).join("");
+}
+function autoEquip(){
+  const a=autoCfg();
+  if(!a.prio.length){$("apMsg").innerHTML='<span style="color:#ff7070">Elige al menos una estadística.</span>';return;}
+  const pool=autoPool();const LK=CH.locked||{};const isL=s=>LK[s]&&CH.gear[s];const used=new Set(Object.keys(LK).filter(isL).map(s=>CH.gear[s]));const pick={};
+  const cand=slot=>pool.filter(i=>fitsSlot(i,slot)&&!used.has(i.i));
+  const best=(list,pref)=>{let b=null,bs=-1;for(const i of list){const s=pRank(i)+(pref&&i.set===pref?1e9:0);if(s>bs){bs=s;b=i;}}return b&&(matchCount(b)>0||(a.set&&b.set===a.set))?b:null;};
+  const slots=PD.map(p=>p[0]).filter(s=>!["main","off","ranged"].includes(s)||a.weap).filter(s=>!(a.empty&&CH.gear[s])).filter(s=>!isL(s));
+  const lockedMain=isL("main")?BYID.get(CH.gear.main):null,lockedOff=isL("off");
+  const byDps=list=>list.filter(i=>i.dps).sort((x,y)=>y.dps-x.dps)[0]||null;
+  const dpsPicked=[];
+  for(const s of slots){if(["main","off"].includes(s))continue;let b=best(cand(s),a.set);if(!b&&s==="ranged"){b=byDps(cand(s));if(b)dpsPicked.push(PDK[s][1]);}if(b){pick[s]=b;used.add(b.i);}}
+  if(a.weap&&lockedMain&&lockedMain.s!=="Two-Hand"&&!lockedOff&&slots.includes("off")){const o=best(cand("off"),a.set);if(o)pick.off=o;}
+  else if(a.weap&&!lockedMain&&!(a.empty&&(CH.gear.main||CH.gear.off))){
+    const mains=cand("main").filter(i=>!(lockedOff&&i.s==="Two-Hand"));const two=best(mains.filter(i=>i.s==="Two-Hand"),a.set);
+    const one=best(mains.filter(i=>i.s!=="Two-Hand"),a.set);
+    let off=null; if(one&&!lockedOff){used.add(one.i);off=best(cand("off"),a.set);used.delete(one.i);}
+    const wv=i=>i?(matchCount(i)===selStats().length?1e6:0)+pScore(i)*100+otherSum(i)+(a.set&&i.set===a.set?1e9:0):0;
+    const s2=two?wv(two):-1, s1=one?(wv(one)+(off?pScore(off)*100+otherSum(off):0)):0;
+    if(two&&s2>=s1){pick.main=two;delete CH.gear.off;}else{if(one)pick.main=one;if(off)pick.off=off;}
+    if(!pick.main){const d=byDps(mains);if(d){pick.main=d;dpsPicked.push(PDK.main[1]);if(d.s==="Two-Hand")delete CH.gear.off;}}
+  }
+  if(!a.empty)for(const s of slots)if(!pick[s])delete CH.gear[s];
+  if(pick.main&&pick.main.s==="Two-Hand"&&!lockedOff)delete CH.gear.off;
+  for(const[s,i]of Object.entries(pick))CH.gear[s]=i.i;
+  const nLocked=Object.keys(LK).filter(isL).length;
+  saveCH();renderGear();
+  const n=Object.keys(pick).length,tot=Object.values(pick).reduce((x,i)=>x+pScore(i),0);const nAll=Object.values(pick).filter(i=>matchCount(i)===selStats().length).length;
+  const setN=a.set?Object.values(pick).filter(i=>i.set===a.set).length:0;
+  const lo=+a.min||1,hi=Math.min(+a.max||CH.lvl,60);
+  const twoH=(pick.main&&pick.main.s==="Two-Hand")||(lockedMain&&lockedMain.s==="Two-Hand");
+  let setOut="";if(a.set&&a.ah){const miss=ITEMS.filter(i=>i.set===a.set&&canUse(i)&&!obtainable(i)&&!Object.values(CH.gear).includes(i.i));
+    if(miss.length)setOut=`<div style="color:#e0b85a;margin-top:4px">${EN?"Not from the auction house":"No están en la subasta"}: ${miss.map(i=>`<b>${esc(i.n)}</b> (${i.b===1?(EN?"binds on pickup":"se liga al recogerlo"):(EN?"binding unknown":"ligado desconocido")}${i.src?" · "+esc(i.src.split("; ")[0]):""})`).join(", ")}. ${EN?"Untick “Auction house items only” to include them.":"Desmarca «Solo items de subasta» para incluirlas."}</div>`;}
+  const emptyS=slots.filter(s=>!pick[s]&&!["shirt","tabard"].includes(s)&&!(s==="off"&&twoH)).map(s=>PDK[s][1]);
+  $("apMsg").innerHTML=`Listo: ${n} piezas equipadas${nLocked?` (${nLocked} fijadas sin cambiar)`:""} · ${nAll} con todas tus stats · +${tot.toFixed(0)} en total${a.ah?" · solo items de subasta"+(Object.keys(a.profs).length?" y de tus profesiones ("+Object.keys(a.profs).map(ZL).join(", ")+")":""):""}${a.set?` · ${setN} piezas de ${esc(a.set)}`:""}. Toca una pieza para ver tus mejores alternativas.`+
+    setOut+(dpsPicked.length?`<div class="note" style="margin-top:4px">${dpsPicked.join(", ")}: ningún arma tiene tus stats, puse la de más DPS.</div>`:"")+(emptyS.length?`<div style="color:#e0b85a;margin-top:4px">Sin item: ${emptyS.join(", ")}. No hay piezas con ${a.prio.map(k=>SL[k]).join(" / ")} entre nivel ${lo} y ${hi}${a.armor!=="any"?" con esa armadura":""}${hi-lo<3?" — amplía el rango con «Todo hasta mi nivel»":""}.</div>`:"");
+}
+function buildAuto(){
+  autoCfg();
+  $("apChips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const p=CH.auto.prio,k=b.dataset.k;const ix=p.indexOf(k);ix>=0?p.splice(ix,1):p.push(k);saveCH();renderAuto();};
+  $("apList").onclick=e=>{const b=e.target.closest("button");if(!b)return;const p=CH.auto.prio;
+    if(b.dataset.up){const i=+b.dataset.up;if(i>0)[p[i-1],p[i]]=[p[i],p[i-1]];}
+    if(b.dataset.dn){const i=+b.dataset.dn;if(i<p.length-1)[p[i+1],p[i]]=[p[i],p[i+1]];}
+    if(b.dataset.rm){p.splice(+b.dataset.rm,1);}saveCH();renderAuto();};
+  $("apSuggest").onclick=()=>{CH.auto.prio=[...(PRIO[CH.cls]||[])];saveCH();renderAuto();};
+  $("apClear").onclick=()=>{CH.auto.prio=[];saveCH();renderAuto();};
+  const set=(id,k,f,ev="change")=>$(id).addEventListener(ev,e=>{CH.auto[k]=f(e.target);saveCH();if(k!=="set")renderAuto();});
+  set("apMin","min",t=>t.value,"change");set("apMax","max",t=>t.value,"change");set("apArmor","armor",t=>t.value);set("apSet","set",t=>t.value);
+  set("apQ","q",t=>+t.value);set("apWeap","weap",t=>t.checked);set("apEmpty","empty",t=>t.checked);set("apEst","est",t=>t.checked);set("apAH","ah",t=>t.checked);
+  $("apProfs").addEventListener("change",e=>{const c=e.target.closest("[data-prof]"),s=e.target.closest("[data-skill]");const P=CH.auto.profs;
+    if(c){if(c.checked)P[c.dataset.prof]=300;else delete P[c.dataset.prof];}
+    if(s){P[s.dataset.skill]=Math.max(1,Math.min(300,+s.value||300));}
+    saveCH();renderAuto();});
+  $("apGo").onclick=autoEquip;
+  $("apRange").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const r=b.dataset.r;CH.auto.max="";CH.auto.min=r==="all"?"":String(Math.max(1,CH.lvl-(+r)+1));saveCH();renderAuto();};
+  renderAuto();
+}
+
+/* ===================== TALENTOS ===================== */
+let tRemove=false;
+function talState(){CH.tal[CH.cls]=CH.tal[CH.cls]||{};return CH.tal[CH.cls];}
+const tk=(ti,t)=>ti+"|"+t.name;
+function treePts(ti){const st=talState();return TAL.classes[CH.cls].trees[ti].talents.reduce((a,t)=>a+(st[tk(ti,t)]||0),0);}
+function totalPts(){return TAL.classes[CH.cls].trees.reduce((a,_,ti)=>a+treePts(ti),0);}
+const maxPts=()=>Math.max(0,CH.lvl-9);
+function findT(ti,name){return TAL.classes[CH.cls].trees[ti].talents.find(t=>t.name===name);}
+function canAdd(ti,t){const st=talState();const c=st[tk(ti,t)]||0;if(c>=t.max||totalPts()>=maxPts())return false;
+  if(treePts(ti)<(t.row-1)*5)return false;if(t.req){const r=findT(ti,t.req);if(r&&(st[tk(ti,r)]||0)<r.max)return false;}return true;}
+function validTree(ti){const st=talState();const ts=TAL.classes[CH.cls].trees[ti].talents;
+  for(const t of ts){const c=st[tk(ti,t)]||0;if(!c)continue;
+    const below=ts.filter(x=>x.row<t.row).reduce((a,x)=>a+(st[tk(ti,x)]||0),0);if(below<(t.row-1)*5)return false;
+    if(t.req){const r=findT(ti,t.req);if(r&&(st[tk(ti,r)]||0)<r.max)return false;}}return true;}
+function canRemove(ti,t){const st=talState(),k=tk(ti,t);if(!st[k])return false;st[k]--;const ok=validTree(ti);st[k]++;return ok;}
+function clickTal(ti,name,rem){const t=findT(ti,name),st=talState(),k=tk(ti,t);
+  if(rem){if(canRemove(ti,t)){st[k]--;if(!st[k])delete st[k];}}else if(canAdd(ti,t))st[k]=(st[k]||0)+1;
+  saveCH();renderTalents();renderTotals();}
+
+function talStatsHTML(ti,t,c){
+  const {fxText}=statCtx();const cur=c?talentFx(t.desc[c-1]||""):[];
+  const line=r=>{const fx=talentFx(t.desc[r-1]||"");if(!fx.length)return null;
+    return fx.map(f=>{const cv=(cur.find(x=>x[0]===f[0]&&x[1]===f[1])||[0,0,0])[2];return f[0]==="pct"?fxText(f,cv):fxText(f,false);}).join(" · ");};
+  const mx=line(t.max);
+  if(!mx)return `<div class="mu" style="margin-top:6px">${EN?"No fixed stats (ability, conditional or utility effect).":"No suma estadísticas fijas (efecto de habilidad, condicional o de utilidad)."}</div>`;
+  const rows=[];
+  if(c)rows.push([EN?`Gives you now (${c}/${t.max})`:`Ahora te aporta (${c}/${t.max})`,line(c),"#6fd06f"]);
+  if(c<t.max)rows.push([EN?`With rank ${c+1}`:`Con el rango ${c+1}`,line(c+1),"#9fd6ff"]);
+  if(c+1<t.max)rows.push([EN?`At max (${t.max}/${t.max})`:`Al máximo (${t.max}/${t.max})`,mx,"#f0d48a"]);
+  return `<div style="margin-top:7px;padding-top:6px;border-top:1px solid #333">${rows.map(([a,b,col])=>`<div class="ln" style="font-size:12.5px"><span class="mu">${a}:</span> <b style="color:${col}">${esc(b)}</b></div>`).join("")}</div>`;
+}
+function talTip(ti,t){const c=talState()[tk(ti,t)]||0;
+  return `<h4 style="color:var(--gold2)">${esc(tName(t))}</h4>${!EN&&tName(t)!==t.name?`<div class="mu">EN: ${esc(t.name)}</div>`:""}<div class="mu">Rango ${c}/${t.max}</div>
+   ${c?`<div class="ln eq" style="margin-top:4px">${esc(tDesc(t,t.desc[c-1]))}</div>`:""}
+   ${c<t.max?`<div class="mu" style="margin-top:6px">${c?"Siguiente rango:":""}</div><div class="ln">${esc(tDesc(t,t.desc[c]||t.desc[0]))}</div>`:""}
+   ${talStatsHTML(ti,t,c)}
+   ${t.row>1&&treePts(ti)<(t.row-1)*5?`<div class="ln red" style="margin-top:4px">Requiere ${(t.row-1)*5} puntos en ${esc(TREE_ES[TAL.classes[CH.cls].trees[ti].name]||"")}</div>`:""}
+   ${t.req?`<div class="ln ${(talState()[tk(ti,findT(ti,t.req)||{name:""})]||0)>=(findT(ti,t.req)||{max:0}).max?"":"red"}">Requiere ${esc(findT(ti,t.req)?tName(findT(ti,t.req)):t.req)} al máximo</div>`:""}
+   <div class="mu" style="margin-top:6px">${isTouch?"Toca para sumar · activa «Modo quitar» para restar":"Clic: sumar · Clic derecho: restar"}</div>`;}
+function renderTalents(){
+  const C=TAL.classes[CH.cls];if(!C)return;const st=talState();
+  $("tTotal").textContent=maxPts();$("tLeft").textContent=maxPts()-totalPts();
+  $("tSplit").textContent=C.trees.map((tr,ti)=>treePts(ti)).join(" / ");
+  $("trees").innerHTML=C.trees.map((tr,ti)=>{
+    const cells=tr.talents.map(t=>{const c=st[tk(ti,t)]||0;const cls=c>=t.max?"max":c?"part":canAdd(ti,t)?"avail":"";
+      return `<div class="tal ${cls}" data-ti="${ti}" data-n="${esc(t.name)}" style="grid-row:${t.row};grid-column:${t.col}">${ico(t.ic,46)}<span class="rk">${c}/${t.max}</span></div>`;}).join("");
+    return `<div class="tree"><h3><span>${esc(TREE_ES[tr.name]||tr.name)} <span class="note" style="font-family:Inter">(${esc(tr.name)})</span></span><span>${treePts(ti)} <button class="btn ghost sm" data-rt="${ti}">↺</button></span></h3><div class="tgrid" data-ti="${ti}">${cells}</div></div>`;}).join("");
+  // flechas de requisitos
+  document.querySelectorAll(".tgrid").forEach(g=>{const ti=+g.dataset.ti;
+    C.trees[ti].talents.filter(t=>t.req).forEach(t=>{const r=findT(ti,t.req);if(!r)return;
+      const a=g.querySelector(`.tal[data-n="${CSS.escape(r.name)}"]`),b=g.querySelector(`.tal[data-n="${CSS.escape(t.name)}"]`);if(!a||!b)return;
+      const ar=a.offsetTop+48,br=b.offsetTop,ax=a.offsetLeft+22,bx=b.offsetLeft+22;const ok=(st[tk(ti,r)]||0)>=r.max;
+      if(ax===bx){const d=document.createElement("div");d.className="arrow"+(ok?" ok":"");d.style.cssText=`left:${ax}px;top:${ar}px;height:${Math.max(4,br-ar)}px`;g.appendChild(d);}
+      else{const d=document.createElement("div");d.className="arrow"+(ok?" ok":"");const y=a.offsetTop+22;d.style.cssText=`left:${Math.min(ax,bx)+24}px;top:${y}px;height:4px;width:${Math.abs(bx-ax)-48}px`;g.appendChild(d);}});});
+  document.querySelectorAll("[data-rt]").forEach(b=>b.onclick=()=>{const ti=+b.dataset.rt;C.trees[ti].talents.forEach(t=>delete st[tk(ti,t)]);saveCH();renderTalents();renderTotals();});
+}
+function buildTalents(){
+  const tr=$("trees");
+  tr.addEventListener("click",e=>{const d=e.target.closest(".tal");if(d){clickTal(+d.dataset.ti,d.dataset.n,tRemove);const t=findT(+d.dataset.ti,d.dataset.n);if(!isTouch)showTip(talTip(+d.dataset.ti,t),e);}});
+  tr.addEventListener("contextmenu",e=>{const d=e.target.closest(".tal");if(d){e.preventDefault();clickTal(+d.dataset.ti,d.dataset.n,true);if(!isTouch)showTip(talTip(+d.dataset.ti,findT(+d.dataset.ti,d.dataset.n)),e);}});
+  tr.addEventListener("mouseover",e=>{if(isTouch)return;const d=e.target.closest(".tal");if(d)showTip(talTip(+d.dataset.ti,findT(+d.dataset.ti,d.dataset.n)),e);else hideTip();});
+  tr.addEventListener("mousemove",e=>{if(!tip.hidden)moveTip(e);});tr.addEventListener("mouseleave",hideTip);
+  $("tRemove").onchange=e=>tRemove=e.target.checked;
+  $("tReset").onclick=()=>{CH.tal[CH.cls]={};saveCH();renderTalents();renderTotals();};
+}
+/* trim talents beyond points when level drops */
+function trimTalents(){for(const cls of Object.keys(CH.tal)){const C=TAL.classes[cls];if(!C)continue;const st=CH.tal[cls];
+  let tot=Object.values(st).reduce((a,b)=>a+b,0);const mx=Math.max(0,CH.lvl-9);
+  if(tot>mx){ // quita desde las filas más altas
+    const all=C.trees.flatMap((tr,ti)=>tr.talents.map(t=>[ti,t])).sort((a,b)=>b[1].row-a[1].row);
+    for(const[ti,t]of all){const k=tk(ti,t);while(st[k]&&tot>mx){st[k]--;tot--;}if(!st[k])delete st[k];}}}}
+
+
+/* ===================== SETS ===================== */
+let SETS=null;const SS={armor:new Set(),use:true,lvl:false,q:""};
+function buildSetIndex(){const m={};for(const i of ITEMS){if(!i.set)continue;(m[i.set]=m[i.set]||[]).push(i);}
+  SETS=Object.entries(m).map(([n,ps])=>{ps.sort((a,b)=>PD.findIndex(p=>p[2].includes(a.s))-PD.findIndex(p=>p[2].includes(b.s)));
+    const types=[...new Set(ps.map(i=>i.c===0&&ARMOR_MAIN.includes(i.t)?i.t:(i.c?"Weapon":"Misc")))];
+    return {n,ps,types,lo:Math.min(...ps.map(i=>i.er)),hi:Math.max(...ps.map(i=>i.er)),q:Math.max(...ps.map(i=>i.q))};}).filter(s=>s.ps.length>=2);}
+function where(i){if(!i.src)return "Origen desconocido";return i.src.split("; ")[0];}
+function renderSets(){
+  if(!SETS)buildSetIndex();
+  $("setArmor").innerHTML=[...ARMOR_MAIN.map(t=>[t,TL["A:"+t]]),["Misc",EN?"Accessories":"Accesorios/armas"]].map(([k,n])=>`<button class="chip${SS.armor.has(k)?" on":""}" data-k="${k}">${n}</button>`).join("");
+  const nm=norm(SS.q);
+  const list=SETS.map(s=>({s,usable:s.ps.filter(i=>canUse(i)&&(!SS.lvl||i.er<=CH.lvl))})).filter(({s,usable})=>{
+    if(SS.use&&usable.length<2)return false;
+    if(SS.lvl&&s.lo>CH.lvl)return false;
+    if(SS.armor.size&&!s.types.some(t=>SS.armor.has(t==="Weapon"?"Misc":t)))return false;
+    if(nm&&!norm(s.n+" "+s.ps.map(i=>i.n+" "+i.en).join(" ")).includes(nm))return false;return true;})
+   .sort((a,b)=>b.s.hi-a.s.hi||a.s.n.localeCompare(b.s.n));
+  $("setCount").textContent=`${list.length} sets`;
+  $("setList").innerHTML=list.slice(0,200).map(({s,usable})=>{const us=new Set(usable.map(i=>i.i));
+    const tt=s.types.map(t=>t==="Weapon"?(EN?"Weapons":"Armas"):t==="Misc"?(EN?"Accessories":"Accesorios"):TL["A:"+t]).join(" / ");
+    return `<div class="setcard"><h3><span class="q${s.q}">${esc(s.n)}</span><span class="note">${s.lo===s.hi?"Nivel "+s.hi:"Nivel "+s.lo+"–"+s.hi}</span></h3>
+     <div class="meta">${tt} · ${s.ps.length} piezas${us.size<s.ps.length?` · usables por ti: ${us.size}`:""}</div>
+     ${s.ps.map(i=>`<div class="sp${us.has(i.i)?"":" no"}" data-id="${i.i}">${ico(i.ic,32,i.q,i.icx)}<div class="t"><div class="nm q${i.q}">${esc(i.n)}</div><div class="wh">${esc(SLOT_ES[i.s]||i.s)} · niv ${i.r>1?i.r:"~"+i.er} · ${esc(where(i))}</div></div></div>`).join("")}
+     <div class="row" style="margin-top:8px"><button class="btn sm" data-eqset="${esc(s.n)}">Equipar las piezas que puedo usar</button></div></div>`;}).join("")||`<div class="empty">No hay sets con esos filtros.</div>`;
+}
+function buildSets(){
+  $("setArmor").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;toggle(SS.armor,b.dataset.k);renderSets();};
+  $("setSearch").oninput=e=>{SS.q=e.target.value;renderSets();};
+  $("setUse").onchange=e=>{SS.use=e.target.checked;renderSets();};$("setLvl").onchange=e=>{SS.lvl=e.target.checked;renderSets();};
+  const L=$("setList");
+  L.addEventListener("click",e=>{const b=e.target.closest("[data-eqset]");
+    if(b){const s=SETS.find(x=>x.n===b.dataset.eqset);let n=0;const usedRing=new Set();
+      for(const i of s.ps){if(!canUse(i))continue;let sl=slotsFor(i);if(!sl.length)continue;let slot=sl[0];
+        if(i.s==="Finger"||i.s==="Trinket"){const pair=i.s==="Finger"?["finger1","finger2"]:["trinket1","trinket2"];slot=pair.find(x=>!usedRing.has(x))||pair[0];usedRing.add(slot);}
+        equip(slot,i.i);n++;}
+      b.textContent=`✓ ${n} piezas equipadas`;return;}
+    const p=e.target.closest(".sp");if(p)detail(BYID.get(+p.dataset.id));});
+  L.addEventListener("mouseover",e=>{if(isTouch)return;const p=e.target.closest(".sp");if(p)showTip(itemTip(BYID.get(+p.dataset.id)),e);else hideTip();});
+  L.addEventListener("mousemove",e=>{if(!tip.hidden)moveTip(e);});L.addEventListener("mouseleave",hideTip);
+}
+/* ===================== personaje / navegación ===================== */
+function syncChar(){
+  $("cClass").innerHTML=Object.keys(CD.classes).map(c=>`<option value="${c}">${CLASS_ES[c]||c}</option>`).join("");$("cClass").value=CH.cls;
+  const cid=String(CD.classes[CH.cls].id);const races=Object.entries(CD.combos).filter(([r,cl])=>cl.map(String).includes(cid)).map(([r])=>r);
+  if(!races.includes(CH.race))CH.race=races[0];
+  $("cRace").innerHTML=races.map(r=>`<option value="${r}">${RACE_ES[CD.races[r].name]||CD.races[r].name}</option>`).join("");$("cRace").value=CH.race;
+  $("cLvl").value=CH.lvl;
+}
+function renderAll(){render();renderGear();renderTalents();if(CH.auto)renderAuto();if(!$("v-sets").hidden)renderSets();}
+function route(){const v=(location.hash||"#buscar").slice(1);const ok=["buscar","equipo","talentos","sets"].includes(v)?v:"buscar";
+  ["buscar","equipo","talentos","sets"].forEach(x=>$("v-"+x).hidden=x!==ok);document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.v===ok));hideTip();
+  if(ok==="talentos")renderTalents();if(ok==="sets")renderSets();if(ok==="equipo")renderTotals();}
+window.addEventListener("hashchange",route);
+
+(async()=>{
+  try{
+    const [it,tl,cd,at]=await Promise.all(["items.json","talents.json","classdata.json","atlas.json"].map(f=>fetch(f).then(r=>{if(!r.ok)throw new Error(f);return r.json();})));
+    ITEMS=it;TAL=tl;CD=cd;AT=at;
+    if(!EN){try{TES=await fetch("talents_es.json").then(r=>r.json());}catch{}}
+    try{SRC_EN=await fetch("src_en.json").then(r=>r.json());if(!EN)SRC_L=await fetch(`src_${LANG}.json`).then(r=>r.json());}catch{}
+    let names={};if(!EN){try{names=await fetch(`names_${LANG}.json`).then(r=>r.json());const alt=await fetch(`names_${LANG==="esMX"?"esES":"esMX"}.json`).then(r=>r.json());for(const k in alt)if(!names[k])names[k]=alt[k];}catch{}}
+    ITEMS.forEach(i=>{i.src=srcText(i);if(i.e)i.e=i.e.split(" | ").map(effText).join(" | ");i.er=i.r>1?i.r:(i.h||Math.max(1,Math.min(60,i.l-5)));i.en=i.n;if(names[i.i])i.n=names[i.i];i._n=norm(i.n+" "+i.en+" "+(i.set||"")+" "+(i.src||"")+" "+(i.e||""));BYID.set(i.i,i);});
+    $("cLang").innerHTML=Object.entries(LANGS).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");$("cLang").value=LANG;
+    $("cLang").onchange=e=>{const v=e.target.value;try{localStorage.setItem("wowf_lang",v);}catch{}window.name="wowf_lang="+v;location.reload();};
+    const saved=store("wowf_char");if(saved&&saved.cls&&CD.classes[saved.cls])Object.assign(CH,saved);
+    $("meta").textContent=`${ITEMS.length.toLocaleString(EN?"en":"es")} armaduras y armas · talentos de las 9 clases · WoW Forever 1.60.1 (datos en vivo del 20 nov.)`;
+    syncChar();buildSearch();buildGear();buildAuto();buildTalents();buildSets();
+    $("cClass").onchange=e=>{CH.cls=e.target.value;syncChar();saveCH();renderAll();};
+    $("cRace").onchange=e=>{CH.race=e.target.value;saveCH();renderTotals();};
+    $("cLvl").onchange=e=>{CH.lvl=Math.max(1,Math.min(60,+e.target.value||60));e.target.value=CH.lvl;trimTalents();saveCH();renderAll();};
+    renderAll();route();
+  }catch(e){$("loading").textContent="No se pudo cargar la base de datos: "+e.message;$("meta").textContent="Error al cargar.";}
+})();
+</script>
+</body>
+</html>
